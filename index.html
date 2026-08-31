@@ -1,0 +1,1438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cozy Table Recipes — Discover Recipes You'll Love to Cook Again and Again</title>
+<meta name="description" content="Cozy Table Recipes is a modern recipe discovery platform featuring American, Italian, Mexican, British, and other globally loved recipes for everyday cooking.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+
+<!-- Ads Scripts Integration -->
+<script src="https://labourcomparison.com/bb/f1/0b/bbf10ba0d0218cfb2dde150b17e08842.js"></script>
+<script src="https://labourcomparison.com/e1/69/12/e16912da320bf3cae2963f7f526ccf3f.js"></script>
+
+<style>
+/* ============ TOKENS ============ */
+:root{
+  --cream:#FBF6ED;
+  --cream-deep:#F3EADA;
+  --white:#FFFFFF;
+  --ink:#2A211A;
+  --ink-soft:#5B4E42;
+  --orange:#E2622B;
+  --orange-dark:#C44D1E;
+  --orange-light:#FBE3D3;
+  --gold:#D9A441;
+  --sage:#6B7A5E;
+  --sage-light:#E7ECE2;
+  --line:#E9DFCE;
+  --shadow-sm: 0 2px 8px rgba(42,33,26,0.06);
+  --shadow-md: 0 10px 30px rgba(42,33,26,0.10);
+  --shadow-lg: 0 24px 60px rgba(42,33,26,0.16);
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-lg: 28px;
+  --font-display:'Fraunces', serif;
+  --font-body:'Inter', sans-serif;
+  --font-hand:'Caveat', cursive;
+}
+
+*,*::before,*::after{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  *,*::before,*::after{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
+}
+body{
+  margin:0;
+  font-family:var(--font-body);
+  background:var(--cream);
+  color:var(--ink);
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%; display:block;}
+a{color:inherit; text-decoration:none;}
+button{font-family:inherit; cursor:pointer;}
+h1,h2,h3,h4{font-family:var(--font-display); margin:0; color:var(--ink); font-weight:600;}
+p{margin:0;}
+ul{margin:0; padding:0; list-style:none;}
+.container{max-width:1240px; margin:0 auto; padding:0 24px;}
+:focus-visible{outline:3px solid var(--orange); outline-offset:3px; border-radius:6px;}
+.visually-hidden{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;}
+
+.section-eyebrow{
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:var(--font-hand); font-size:1.35rem; color:var(--orange-dark);
+  transform:rotate(-2deg);
+}
+.section-head{margin-bottom:38px;}
+.section-head .top-row{display:flex; align-items:flex-end; justify-content:space-between; gap:20px; flex-wrap:wrap;}
+.section-title{font-size:clamp(1.7rem, 3vw, 2.5rem); letter-spacing:-0.02em;}
+.section-sub{color:var(--ink-soft); max-width:560px; margin-top:10px; font-size:1.02rem;}
+
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  padding:14px 26px; border-radius:999px; font-weight:700; font-size:0.95rem;
+  border:2px solid transparent; transition:transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
+  white-space:nowrap;
+}
+.btn-primary{background:var(--orange); color:#fff; box-shadow:var(--shadow-sm);}
+.btn-primary:hover{background:var(--orange-dark); transform:translateY(-2px); box-shadow:var(--shadow-md);}
+.btn-outline{background:transparent; border-color:var(--ink); color:var(--ink);}
+.btn-outline:hover{background:var(--ink); color:var(--white); transform:translateY(-2px);}
+.btn-ghost{background:var(--white); color:var(--ink); border-color:var(--line);}
+.btn-ghost:hover{border-color:var(--orange); color:var(--orange-dark); transform:translateY(-2px);}
+.btn-sm{padding:9px 16px; font-size:0.82rem;}
+
+/* ============ NAVBAR ============ */
+.navbar{
+  position:sticky; top:0; z-index:1000;
+  background:rgba(251,246,237,0.88);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+  transition:box-shadow .3s ease;
+}
+.navbar.scrolled{box-shadow:0 6px 24px rgba(42,33,26,0.08);}
+.nav-inner{display:flex; align-items:center; justify-content:space-between; padding:14px 24px; gap:20px; max-width:1320px; margin:0 auto;}
+.logo{display:flex; align-items:center; gap:9px; font-family:var(--font-display); font-weight:700; font-size:1.4rem; color:var(--ink); flex-shrink:0;}
+.logo .mark{
+  width:38px; height:38px; border-radius:12px; background:var(--orange);
+  display:flex; align-items:center; justify-content:center; color:#fff; font-size:1.1rem;
+  transform:rotate(-6deg); box-shadow:var(--shadow-sm);
+}
+.nav-links{display:flex; align-items:center; gap:2px; flex-wrap:nowrap;}
+.nav-links a{
+  padding:10px 13px; border-radius:999px; font-weight:600; font-size:0.88rem; color:var(--ink-soft);
+  transition:background .2s ease, color .2s ease; white-space:nowrap;
+}
+.nav-links a:hover, .nav-links a:focus-visible{background:var(--orange-light); color:var(--orange-dark);}
+.nav-actions{display:flex; align-items:center; gap:8px; flex-shrink:0;}
+.icon-btn{
+  width:42px; height:42px; border-radius:50%; border:1.5px solid var(--line); background:var(--white);
+  display:flex; align-items:center; justify-content:center; position:relative; transition:all .2s ease; color:var(--ink);
+}
+.icon-btn:hover{border-color:var(--orange); color:var(--orange-dark); transform:translateY(-2px);}
+.fav-count{
+  position:absolute; top:-5px; right:-5px; background:var(--orange); color:#fff; font-size:0.65rem; font-weight:800;
+  min-width:18px; height:18px; border-radius:50%; display:flex; align-items:center; justify-content:center; padding:0 3px;
+  border:2px solid var(--cream);
+}
+.hamburger{display:none; width:42px; height:42px; border-radius:12px; border:1.5px solid var(--line); background:var(--white); align-items:center; justify-content:center; flex-direction:column; gap:4px;}
+.hamburger span{display:block; width:20px; height:2px; background:var(--ink); border-radius:2px; transition:all .3s ease;}
+.hamburger.active span:nth-child(1){transform:translateY(6px) rotate(45deg);}
+.hamburger.active span:nth-child(2){opacity:0;}
+.hamburger.active span:nth-child(3){transform:translateY(-6px) rotate(-45deg);}
+
+.mobile-menu{
+  display:none; flex-direction:column; gap:2px; background:var(--white); border-top:1px solid var(--line);
+  padding:14px 20px 22px; max-height:0; overflow:hidden; transition:max-height .35s ease;
+}
+.mobile-menu.open{max-height:600px;}
+.mobile-menu a{padding:13px 10px; border-radius:10px; font-weight:600; color:var(--ink); border-bottom:1px solid var(--cream-deep);}
+.mobile-menu a:hover{color:var(--orange-dark);}
+.mobile-menu .btn{margin-top:12px; width:100%;}
+
+@media (max-width: 1080px){
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .mobile-menu{display:flex;}
+}
+
+/* ============ HERO ============ */
+.hero{position:relative; overflow:hidden; padding:64px 0 90px;}
+.hero-bg-shape{
+  position:absolute; top:-120px; right:-160px; width:560px; height:560px; border-radius:50%;
+  background:radial-gradient(circle at 30% 30%, var(--orange-light), transparent 70%);
+  z-index:0;
+}
+.hero-inner{position:relative; z-index:1; display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:center;}
+.hero-eyebrow{
+  display:inline-flex; align-items:center; gap:8px; padding:7px 16px; border-radius:999px;
+  background:var(--white); border:1px solid var(--line); font-size:0.82rem; font-weight:700; color:var(--orange-dark);
+  margin-bottom:22px; box-shadow:var(--shadow-sm);
+}
+.hero h1{font-size:clamp(2.3rem, 4.6vw, 3.8rem); line-height:1.06; letter-spacing:-0.02em; margin-bottom:20px;}
+.hero h1 em{font-style:italic; color:var(--orange);}
+.hero-sub{font-size:1.12rem; color:var(--ink-soft); max-width:520px; margin-bottom:32px;}
+.hero-search{
+  background:var(--white); border-radius:999px; box-shadow:var(--shadow-md); padding:8px; display:flex; gap:8px;
+  border:1px solid var(--line); max-width:560px;
+}
+.hero-search input{
+  flex:1; border:none; background:transparent; padding:12px 18px; font-size:0.98rem; font-family:inherit; color:var(--ink); min-width:0;
+}
+.hero-search input:focus{outline:none;}
+.hero-search button{border-radius:999px; padding:12px 24px;}
+.hero-popular{display:flex; flex-wrap:wrap; gap:9px; margin-top:18px; align-items:center;}
+.hero-popular span{font-size:0.82rem; color:var(--ink-soft); font-weight:600; margin-right:2px;}
+.chip{
+  padding:8px 15px; border-radius:999px; background:var(--white); border:1px solid var(--line); font-size:0.82rem;
+  font-weight:600; color:var(--ink-soft); transition:all .2s ease;
+}
+.chip:hover{background:var(--orange); color:#fff; border-color:var(--orange); transform:translateY(-1px);}
+.hero-cta-row{display:flex; gap:14px; margin-top:30px; flex-wrap:wrap;}
+.hero-media{position:relative;}
+.hero-card-stack{position:relative; height:460px;}
+.hero-photo{
+  position:absolute; border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-lg); border:6px solid var(--white);
+}
+.hero-photo img{width:100%; height:100%; object-fit:cover;}
+.hero-photo.p1{width:78%; height:340px; top:0; right:0;}
+.hero-photo.p2{width:52%; height:220px; bottom:0; left:0; z-index:2; transform:rotate(-4deg);}
+.hero-stat{
+  position:absolute; bottom:28px; right:10px; z-index:3; background:var(--ink); color:var(--white); border-radius:var(--radius-md);
+  padding:16px 20px; box-shadow:var(--shadow-lg); display:flex; align-items:center; gap:12px; transform:rotate(3deg);
+}
+.hero-stat .num{font-family:var(--font-display); font-size:1.7rem; font-weight:700; line-height:1;}
+.hero-stat .lbl{font-size:0.72rem; color:#D8CFC4; line-height:1.2; max-width:90px;}
+@media (max-width:960px){
+  .hero-inner{grid-template-columns:1fr; gap:40px;}
+  .hero-card-stack{height:340px;}
+}
+
+/* ============ CATEGORY GRID ============ */
+.categories{padding:80px 0;}
+.cat-grid{display:grid; grid-template-columns:repeat(6, 1fr); gap:16px;}
+.cat-card{
+  background:var(--white); border:1px solid var(--line); border-radius:var(--radius-md); padding:20px 16px; text-align:center;
+  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease; cursor:pointer;
+}
+.cat-card:hover{transform:translateY(-6px); box-shadow:var(--shadow-md); border-color:var(--orange);}
+.cat-emoji{
+  width:56px; height:56px; border-radius:50%; background:var(--orange-light); display:flex; align-items:center; justify-content:center;
+  font-size:1.6rem; margin:0 auto 12px;
+}
+.cat-name{font-weight:700; font-size:0.92rem;}
+.cat-count{color:var(--ink-soft); font-size:0.78rem; margin-top:3px;}
+@media (max-width:960px){.cat-grid{grid-template-columns:repeat(3,1fr);}}
+@media (max-width:560px){.cat-grid{grid-template-columns:repeat(2,1fr);}}
+
+/* ============ RECIPE GRID / CARDS ============ */
+.recipe-grid{display:grid; grid-template-columns:repeat(4, 1fr); gap:24px;}
+@media (max-width:1180px){.recipe-grid{grid-template-columns:repeat(3,1fr);}}
+@media (max-width:860px){.recipe-grid{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:540px){.recipe-grid{grid-template-columns:1fr;}}
+
+.recipe-card{
+  background:var(--white); border-radius:var(--radius-md); overflow:hidden; border:1px solid var(--line);
+  box-shadow:var(--shadow-sm); transition:transform .3s ease, box-shadow .3s ease; cursor:pointer; display:flex; flex-direction:column;
+}
+.recipe-card:hover{transform:translateY(-8px); box-shadow:var(--shadow-lg);}
+.recipe-img-wrap{position:relative; aspect-ratio:4/3; overflow:hidden; background:var(--cream-deep);}
+.recipe-img-wrap img{width:100%; height:100%; object-fit:cover; transition:transform .5s ease;}
+.recipe-card:hover .recipe-img-wrap img{transform:scale(1.08);}
+.recipe-badge{
+  position:absolute; top:12px; left:12px; background:var(--white); padding:5px 12px; border-radius:999px;
+  font-size:0.72rem; font-weight:700; color:var(--orange-dark); box-shadow:var(--shadow-sm);
+}
+.fav-btn{
+  position:absolute; top:10px; right:10px; width:38px; height:38px; border-radius:50%; background:rgba(255,255,255,0.92);
+  border:none; display:flex; align-items:center; justify-content:center; box-shadow:var(--shadow-sm); transition:all .2s ease; z-index:2;
+}
+.fav-btn:hover{transform:scale(1.1);}
+.fav-btn svg{width:18px; height:18px; stroke:var(--ink); fill:none; stroke-width:2;}
+.fav-btn.active svg{fill:var(--orange); stroke:var(--orange);}
+.recipe-body{padding:18px 18px 20px; display:flex; flex-direction:column; gap:9px; flex:1;}
+.recipe-cuisine{font-size:0.72rem; font-weight:700; color:var(--sage); text-transform:uppercase; letter-spacing:0.04em;}
+.recipe-title{font-size:1.12rem; line-height:1.28;}
+.recipe-desc{color:var(--ink-soft); font-size:0.86rem; line-height:1.45; flex:1;}
+.recipe-meta{display:flex; align-items:center; justify-content:space-between; font-size:0.78rem; color:var(--ink-soft); border-top:1px dashed var(--line); padding-top:11px; margin-top:2px;}
+.recipe-meta .meta-item{display:flex; align-items:center; gap:5px;}
+.stars{color:var(--gold); font-size:0.85rem; letter-spacing:1px;}
+.rating-num{font-weight:700; color:var(--ink); font-size:0.82rem;}
+
+.section-footer-cta{display:flex; justify-content:center; margin-top:44px;}
+
+/* ============ TRENDING ============ */
+.trending{padding:80px 0; background:var(--white); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+.trend-row{display:flex; gap:20px; overflow-x:auto; padding-bottom:14px; scroll-snap-type:x mandatory;}
+.trend-row::-webkit-scrollbar{height:8px;}
+.trend-row::-webkit-scrollbar-thumb{background:var(--line); border-radius:8px;}
+.trend-card{
+  min-width:270px; scroll-snap-align:start; background:var(--cream); border-radius:var(--radius-md); overflow:hidden;
+  border:1px solid var(--line); position:relative; cursor:pointer; transition:transform .25s ease;
+}
+.trend-card:hover{transform:translateY(-6px);}
+.trend-rank{
+  position:absolute; top:12px; left:12px; z-index:2; background:var(--ink); color:#fff; font-family:var(--font-display);
+  font-weight:700; width:38px; height:38px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.05rem;
+}
+.trend-fire{position:absolute; top:12px; right:12px; z-index:2; background:var(--orange); color:#fff; font-size:0.7rem; font-weight:800; padding:5px 10px; border-radius:999px;}
+.trend-img{aspect-ratio:16/11; overflow:hidden;}
+.trend-img img{width:100%; height:100%; object-fit:cover;}
+.trend-info{padding:14px 16px 18px;}
+.trend-info h4{font-size:1rem; margin-bottom:6px;}
+
+/* ============ FILTER BAR ============ */
+.filter-panel{
+  background:var(--white); border:1px solid var(--line); border-radius:var(--radius-lg); padding:24px; margin-bottom:36px;
+  display:flex; flex-wrap:wrap; gap:14px; align-items:flex-end; box-shadow:var(--shadow-sm);
+}
+.filter-group{display:flex; flex-direction:column; gap:6px;}
+.filter-group label{font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--ink-soft);}
+.filter-group select{
+  padding:10px 14px; border-radius:10px; border:1.5px solid var(--line); background:var(--cream); font-family:inherit;
+  font-size:0.88rem; color:var(--ink); min-width:150px;
+}
+.filter-actions{display:flex; gap:10px; margin-left:auto; align-self:center;}
+.active-filters{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:24px;}
+.active-filter-tag{
+  display:inline-flex; align-items:center; gap:6px; background:var(--orange-light); color:var(--orange-dark);
+  padding:6px 12px; border-radius:999px; font-size:0.78rem; font-weight:700;
+}
+.active-filter-tag button{background:none; border:none; color:var(--orange-dark); font-size:0.9rem; line-height:1; padding:0;}
+.results-count{color:var(--ink-soft); font-size:0.9rem; margin-bottom:18px;}
+.time-pills{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:32px;}
+.time-pill{
+  padding:10px 20px; border-radius:999px; background:var(--white); border:1.5px solid var(--line); font-weight:700; font-size:0.85rem;
+  transition:all .2s ease;
+}
+.time-pill.active, .time-pill:hover{background:var(--ink); color:#fff; border-color:var(--ink);}
+
+.empty-state{text-align:center; padding:70px 20px; color:var(--ink-soft);}
+.empty-state .emoji{font-size:2.6rem; margin-bottom:14px;}
+.empty-state h3{margin-bottom:8px; color:var(--ink);}
+
+/* ============ AIR FRYER ============ */
+.airfryer{padding:80px 0; background:var(--sage-light);}
+.airfryer .section-eyebrow{color:var(--sage);}
+
+/* ============ HEALTHY ============ */
+.healthy{padding:80px 0;}
+.healthy-tags{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:36px;}
+.healthy-tag{padding:9px 17px; border-radius:999px; background:var(--white); border:1.5px solid var(--sage); color:var(--sage); font-weight:700; font-size:0.82rem;}
+.nutrition-row{display:flex; gap:14px; margin-top:10px; flex-wrap:wrap;}
+.nutrition-pill{background:var(--sage-light); color:var(--sage); font-size:0.72rem; font-weight:700; padding:5px 10px; border-radius:8px;}
+
+/* ============ NEWSLETTER ============ */
+.newsletter{padding:80px 0;}
+.newsletter-box{
+  background:var(--ink); border-radius:var(--radius-lg); padding:60px 48px; text-align:center; position:relative; overflow:hidden;
+}
+.newsletter-box::before{
+  content:''; position:absolute; top:-80px; left:-80px; width:260px; height:260px; border-radius:50%;
+  background:radial-gradient(circle, rgba(226,98,43,0.35), transparent 70%);
+}
+.newsletter-box h2{color:#fff; font-size:clamp(1.6rem,3vw,2.3rem); max-width:600px; margin:0 auto 14px; position:relative;}
+.newsletter-box p{color:#D8CFC4; max-width:480px; margin:0 auto 30px; position:relative;}
+.newsletter-form{display:flex; gap:10px; max-width:460px; margin:0 auto; position:relative; flex-wrap:wrap; justify-content:center;}
+.newsletter-form input{
+  flex:1; min-width:220px; padding:15px 20px; border-radius:999px; border:none; font-family:inherit; font-size:0.95rem;
+}
+.newsletter-form input:focus{outline:3px solid var(--orange);}
+.newsletter-msg{color:#B9E3B0; margin-top:16px; font-weight:600; position:relative; min-height:1.2em;}
+
+/* ============ FOOTER ============ */
+footer{background:var(--ink); color:#D8CFC4; padding:64px 0 24px; margin-top:20px;}
+.footer-grid{display:grid; grid-template-columns:1.6fr 1fr 1fr 1fr; gap:40px; padding-bottom:40px; border-bottom:1px solid #453B31;}
+.footer-brand .logo{color:#fff;}
+.footer-brand p{margin-top:14px; color:#B3A99C; font-size:0.9rem; max-width:280px;}
+footer h4{color:#fff; font-size:0.88rem; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:16px;}
+footer ul li{margin-bottom:11px;}
+footer ul li a{color:#B3A99C; font-size:0.9rem; transition:color .2s ease;}
+footer ul li a:hover{color:var(--orange);}
+.social-row{display:flex; gap:10px; margin-top:16px;}
+.social-row a{
+  width:38px; height:38px; border-radius:50%; background:#3A3128; display:flex; align-items:center; justify-content:center;
+  color:#D8CFC4; transition:all .2s ease; font-size:0.85rem;
+}
+.social-row a:hover{background:var(--orange); color:#fff; transform:translateY(-3px);}
+.footer-bottom{padding-top:24px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:0.82rem; color:#8A8073;}
+@media (max-width:860px){.footer-grid{grid-template-columns:1fr 1fr;}}
+@media (max-width:540px){.footer-grid{grid-template-columns:1fr;}}
+
+/* ============ MODAL ============ */
+.modal-overlay{
+  position:fixed; inset:0; background:rgba(42,33,26,0.55); backdrop-filter:blur(4px); z-index:2000; display:none;
+  align-items:flex-start; justify-content:center; padding:40px 20px; overflow-y:auto;
+}
+.modal-overlay.open{display:flex;}
+.modal{
+  background:var(--white); border-radius:var(--radius-lg); max-width:820px; width:100%; box-shadow:var(--shadow-lg);
+  animation:modalIn .3s ease; margin-bottom:40px;
+}
+@keyframes modalIn{from{opacity:0; transform:translateY(24px) scale(0.98);} to{opacity:1; transform:translateY(0) scale(1);}}
+.modal-close{
+  position:absolute; top:20px; right:20px; width:42px; height:42px; border-radius:50%; background:#fff; border:none;
+  display:flex; align-items:center; justify-content:center; box-shadow:var(--shadow-md); z-index:5; font-size:1.2rem;
+}
+.modal-hero{position:relative; border-radius:var(--radius-lg) var(--radius-lg) 0 0; overflow:hidden; aspect-ratio:16/8;}
+.modal-hero img{width:100%; height:100%; object-fit:cover;}
+.modal-body{padding:32px 36px 40px;}
+.modal-badges{display:flex; gap:8px; margin-bottom:14px; flex-wrap:wrap;}
+.modal-badge{background:var(--orange-light); color:var(--orange-dark); font-size:0.72rem; font-weight:700; padding:5px 12px; border-radius:999px;}
+.modal-title{font-size:clamp(1.5rem,3vw,2rem); margin-bottom:10px;}
+.modal-desc{color:var(--ink-soft); margin-bottom:24px; font-size:1rem;}
+.modal-stats{display:grid; grid-template-columns:repeat(5,1fr); gap:10px; background:var(--cream); border-radius:var(--radius-md); padding:18px; margin-bottom:30px;}
+.modal-stat{text-align:center;}
+.modal-stat .v{font-family:var(--font-display); font-weight:700; font-size:1.15rem;}
+.modal-stat .l{font-size:0.68rem; color:var(--ink-soft); text-transform:uppercase; letter-spacing:0.04em; margin-top:2px;}
+.modal-cols{display:grid; grid-template-columns:1fr 1.3fr; gap:36px;}
+@media (max-width:680px){.modal-cols{grid-template-columns:1fr;} .modal-stats{grid-template-columns:repeat(3,1fr); row-gap:16px;}}
+.modal-cols h3{font-size:1.05rem; margin-bottom:14px;}
+.ingredient-list li{display:flex; align-items:flex-start; gap:10px; margin-bottom:11px; font-size:0.92rem;}
+.ingredient-list input[type=checkbox]{margin-top:3px; width:17px; height:17px; accent-color:var(--orange); flex-shrink:0;}
+.ingredient-list label.checked{text-decoration:line-through; color:var(--ink-soft);}
+.steps-list{counter-reset:step;}
+.steps-list li{
+  counter-increment:step; margin-bottom:18px; padding-left:42px; position:relative; font-size:0.93rem; color:var(--ink-soft); line-height:1.55;
+}
+.steps-list li::before{
+  content:counter(step); position:absolute; left:0; top:-2px; width:28px; height:28px; border-radius:50%; background:var(--orange);
+  color:#fff; font-family:var(--font-display); font-weight:700; font-size:0.85rem; display:flex; align-items:center; justify-content:center;
+}
+.tips-box{background:var(--sage-light); border-radius:var(--radius-md); padding:18px 20px; margin-top:24px; font-size:0.88rem; color:var(--ink);}
+.tips-box strong{color:var(--sage);}
+.modal-nutrition{display:flex; gap:10px; flex-wrap:wrap; margin-top:24px;}
+
+/* ============ FAVORITES DRAWER ============ */
+.drawer-overlay{position:fixed; inset:0; background:rgba(42,33,26,0.45); z-index:2100; display:none;}
+.drawer-overlay.open{display:block;}
+.drawer{
+  position:fixed; top:0; right:0; height:100%; width:400px; max-width:92vw; background:var(--white); z-index:2101;
+  transform:translateX(100%); transition:transform .35s ease; box-shadow:-10px 0 40px rgba(0,0,0,0.15); display:flex; flex-direction:column;
+}
+.drawer.open{transform:translateX(0);}
+.drawer-head{display:flex; align-items:center; justify-content:space-between; padding:22px 24px; border-bottom:1px solid var(--line);}
+.drawer-head h3{font-size:1.3rem;}
+.drawer-list{padding:16px 20px; overflow-y:auto; flex:1;}
+.drawer-item{display:flex; gap:12px; padding:12px; border-radius:14px; margin-bottom:10px; transition:background .2s ease; cursor:pointer; align-items:center;}
+.drawer-item:hover{background:var(--cream);}
+.drawer-item img{width:64px; height:64px; border-radius:10px; object-fit:cover; flex-shrink:0;}
+.drawer-item .di-title{font-weight:700; font-size:0.9rem; margin-bottom:3px;}
+.drawer-item .di-meta{font-size:0.76rem; color:var(--ink-soft);}
+.drawer-item .di-remove{margin-left:auto; background:none; border:none; color:var(--ink-soft); font-size:1.1rem; padding:6px;}
+
+/* ============ SEARCH OVERLAY ============ */
+.search-overlay{position:fixed; inset:0; background:rgba(42,33,26,0.55); backdrop-filter:blur(4px); z-index:2200; display:none; padding:80px 20px;}
+.search-overlay.open{display:block;}
+.search-panel{max-width:640px; margin:0 auto; background:var(--white); border-radius:var(--radius-lg); box-shadow:var(--shadow-lg); overflow:hidden;}
+.search-panel-head{display:flex; align-items:center; gap:12px; padding:20px 24px; border-bottom:1px solid var(--line);}
+.search-panel-head input{flex:1; border:none; font-size:1.1rem; font-family:inherit; background:transparent;}
+.search-panel-head input:focus{outline:none;}
+.search-panel-close{background:var(--cream); border:none; border-radius:8px; padding:8px 12px; font-weight:700; font-size:0.8rem; color:var(--ink-soft);}
+.search-results{max-height:420px; overflow-y:auto; padding:10px;}
+.search-result-item{display:flex; gap:14px; align-items:center; padding:12px; border-radius:12px; cursor:pointer;}
+.search-result-item:hover{background:var(--cream);}
+.search-result-item img{width:54px; height:54px; border-radius:10px; object-fit:cover;}
+.search-hint{padding:24px; text-align:center; color:var(--ink-soft); font-size:0.9rem;}
+
+/* ============ TOAST ============ */
+.toast{
+  position:fixed; bottom:26px; left:50%; transform:translateX(-50%) translateY(120%); background:var(--ink); color:#fff;
+  padding:14px 24px; border-radius:999px; font-weight:600; font-size:0.88rem; z-index:3000; box-shadow:var(--shadow-lg);
+  transition:transform .35s ease; display:flex; align-items:center; gap:8px;
+}
+.toast.show{transform:translateX(-50%) translateY(0);}
+
+.reveal{opacity:0; transform:translateY(24px); transition:opacity .6s ease, transform .6s ease;}
+.reveal.in{opacity:1; transform:translateY(0);}
+.skip-link{position:absolute; left:-999px; top:0; background:var(--orange); color:#fff; padding:12px 20px; z-index:5000; border-radius:0 0 10px 0;}
+.skip-link:focus{left:0;}
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- ============ NAVBAR ============ -->
+<header class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="#home" class="logo" aria-label="Cozy Table Recipes home">
+      <span class="mark" aria-hidden="true">🍳</span> Cozy Table Recipes
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#home">Home</a>
+      <a href="#recipes">Recipes</a>
+      <a href="#categories">Categories</a>
+      <a href="#popular">Popular</a>
+      <a href="#quick-easy">Quick &amp; Easy</a>
+      <a href="#healthy">Healthy</a>
+      <a href="#airfryer">Air Fryer</a>
+      <a href="#desserts">Desserts</a>
+      <a href="#about">About</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn" id="searchBtn" aria-label="Search recipes">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+      <button class="icon-btn" id="favBtn" aria-label="View favorite recipes">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+        <span class="fav-count" id="favCount">0</span>
+      </button>
+      <a href="https://labourcomparison.com/cu9p64850?key=fda04d3c3de40f5b14c7b7aa9f6ea47c" target="_blank" class="btn btn-primary btn-sm" style="display:inline-flex;" id="exploreNavBtn">Cookbook Deals</a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile">
+    <a href="#home">Home</a>
+    <a href="#recipes">Recipes</a>
+    <a href="#categories">Categories</a>
+    <a href="#popular">Popular Recipes</a>
+    <a href="#quick-easy">Quick &amp; Easy</a>
+    <a href="#healthy">Healthy Recipes</a>
+    <a href="#airfryer">Air Fryer</a>
+    <a href="#desserts">Desserts</a>
+    <a href="#about">About</a>
+    <a href="https://labourcomparison.com/cu9p64850?key=fda04d3c3de40f5b14c7b7aa9f6ea47c" target="_blank" class="btn btn-primary">Free Recipe Deals</a>
+  </nav>
+</header>
+
+<main id="main">
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div class="hero-bg-shape" aria-hidden="true"></div>
+  <div class="container hero-inner">
+    <div class="hero-copy">
+      <span class="hero-eyebrow">👩‍🍳 Over 30 tested recipes &amp; growing</span>
+      <h1>Discover Recipes You'll <em>Love</em> to Cook Again and Again</h1>
+      <p class="hero-sub">Explore delicious, easy-to-follow recipes for everyday meals, family dinners, weekend cooking, parties, holidays, and special occasions.</p>
+      <form class="hero-search" id="heroSearchForm" role="search">
+        <label for="heroSearchInput" class="visually-hidden">Search recipes, ingredients, or cuisines</label>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-left:10px; flex-shrink:0; color:var(--ink-soft);" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="heroSearchInput" placeholder="Search recipes, ingredients, or cuisines">
+        <button type="submit" class="btn btn-primary">Search</button>
+      </form>
+      <div class="hero-popular">
+        <span>Popular:</span>
+        <button class="chip" data-search="Chicken Dinner">Chicken Dinner</button>
+        <button class="chip" data-search="Pasta">Pasta</button>
+        <button class="chip" data-search="Easy Dinner">Easy Dinner</button>
+        <button class="chip" data-search="Air Fryer">Air Fryer</button>
+        <button class="chip" data-search="Healthy">Healthy Recipes</button>
+        <button class="chip" data-search="Cookies">Cookies</button>
+        <button class="chip" data-search="Steak">Steak</button>
+        <button class="chip" data-search="Tacos">Tacos</button>
+      </div>
+      <div class="hero-cta-row">
+        <a href="#recipes" class="btn btn-primary">Explore Recipes</a>
+        <a href="https://labourcomparison.com/cu9p64850?key=fda04d3c3de40f5b14c7b7aa9f6ea47c" target="_blank" class="btn btn-outline">Trending Offers 🔥</a>
+      </div>
+    </div>
+    <div class="hero-media">
+      <div class="hero-card-stack">
+        <div class="hero-photo p1">
+          <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=900&q=80" alt="Smash burger" loading="lazy">
+        </div>
+        <div class="hero-photo p2">
+          <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=700&q=80" alt="Pasta" loading="lazy">
+        </div>
+        <div class="hero-stat">
+          <span class="num">30+</span>
+          <span class="lbl">Home-tested recipes ready to cook</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CATEGORIES ============ -->
+<section class="categories container" id="categories">
+  <div class="section-head reveal">
+    <span class="section-eyebrow">✦ browse by craving</span>
+    <div class="top-row">
+      <h2 class="section-title">Popular Categories</h2>
+    </div>
+    <p class="section-sub">From weeknight dinners to weekend baking projects — find exactly what you're in the mood for.</p>
+  </div>
+  <div class="cat-grid" id="categoryGrid"></div>
+</section>
+
+<!-- ============ FEATURED RECIPES ============ -->
+<section class="container" id="popular" style="padding:20px 24px 80px;">
+  <div class="section-head reveal">
+    <span class="section-eyebrow">✦ fan favorites</span>
+    <div class="top-row">
+      <h2 class="section-title">Featured Recipes</h2>
+    </div>
+    <p class="section-sub">Hand-picked, highly rated recipes our readers make on repeat.</p>
+  </div>
+  <div class="recipe-grid" id="featuredGrid"></div>
+  <div class="section-footer-cta">
+    <a href="#recipes" class="btn btn-outline">View All Recipes</a>
+  </div>
+</section>
+
+<!-- ============ AMERICAN FAVORITES ============ -->
+<section class="container" style="padding:20px 24px 80px;">
+  <div class="section-head reveal">
+    <span class="section-eyebrow">✦ stars &amp; stripes</span>
+    <div class="top-row">
+      <h2 class="section-title">American Favorites</h2>
+    </div>
+    <p class="section-sub">The classics that built the American dinner table — burgers, ribs, fried chicken and more.</p>
+  </div>
+  <div class="recipe-grid" id="americanGrid"></div>
+</section>
+
+<!-- ============ GLOBAL FAVORITES ============ -->
+<section class="container" style="padding:20px 24px 80px;">
+  <div class="section-head reveal">
+    <span class="section-eyebrow">✦ passport not required</span>
+    <div class="top-row">
+      <h2 class="section-title">Global Favorites</h2>
+    </div>
+    <p class="section-sub">Beloved dishes from Italy, Mexico, Greece, Japan, the UK and beyond — favorites in kitchens everywhere.</p>
+  </div>
+  <div class="recipe-grid" id="globalGrid"></div>
+</section>
+
+<!-- ============ TRENDING ============ -->
+<section class="trending" id="trending">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">🔥 heating up</span>
+      <div class="top-row">
+        <h2 class="section-title">Trending Right Now</h2>
+      </div>
+      <p class="section-sub">What everyone's cooking (and saving) this week.</p>
+    </div>
+    <div class="trend-row" id="trendingRow"></div>
+  </div>
+</section>
+
+<!-- ============ RECIPE HUB ============ -->
+<section class="container" id="recipes" style="padding:80px 24px;">
+  <div class="section-head reveal">
+    <span class="section-eyebrow">✦ the full collection</span>
+    <div class="top-row">
+      <h2 class="section-title">All Recipes</h2>
+    </div>
+    <p class="section-sub">Search, filter, and sort to find your next meal.</p>
+  </div>
+
+  <div class="filter-panel">
+    <div class="filter-group">
+      <label for="fCategory">Category</label>
+      <select id="fCategory">
+        <option value="">All Categories</option>
+        <option value="Breakfast">Breakfast</option>
+        <option value="Lunch">Lunch</option>
+        <option value="Dinner">Dinner</option>
+        <option value="Dessert">Dessert</option>
+        <option value="Snacks">Snacks</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label for="fTime">Cooking Time</label>
+      <select id="fTime">
+        <option value="">Any Time</option>
+        <option value="15">Under 15 minutes</option>
+        <option value="30">Under 30 minutes</option>
+        <option value="60">Under 1 hour</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label for="fDifficulty">Difficulty</label>
+      <select id="fDifficulty">
+        <option value="">Any Difficulty</option>
+        <option value="Easy">Easy</option>
+        <option value="Medium">Medium</option>
+        <option value="Advanced">Advanced</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label for="fCuisine">Cuisine</label>
+      <select id="fCuisine">
+        <option value="">All Cuisines</option>
+        <option value="American">American</option>
+        <option value="Italian">Italian</option>
+        <option value="Mexican">Mexican</option>
+        <option value="British">British</option>
+        <option value="Canadian">Canadian</option>
+        <option value="Australian">Australian</option>
+        <option value="Japanese">Japanese</option>
+        <option value="Greek">Greek</option>
+        <option value="French">French</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label for="fSort">Sort By</label>
+      <select id="fSort">
+        <option value="popular">Most Popular</option>
+        <option value="rating">Highest Rated</option>
+        <option value="quickest">Quickest</option>
+      </select>
+    </div>
+    <div class="filter-actions">
+      <button class="btn btn-ghost btn-sm" id="clearFiltersBtn">Clear Filters</button>
+    </div>
+  </div>
+
+  <div class="active-filters" id="activeFilters"></div>
+  <p class="results-count" id="resultsCount"></p>
+  <div class="recipe-grid" id="allRecipesGrid"></div>
+  <div class="empty-state" id="emptyState" style="display:none;">
+    <div class="emoji">🔍</div>
+    <h3>No recipes match your filters</h3>
+    <p>Try clearing a filter or searching a different term.</p>
+  </div>
+</section>
+
+<!-- ============ QUICK & EASY ============ -->
+<section class="container" id="quick-easy" style="padding:20px 24px 80px;">
+  <div class="section-head reveal">
+    <span class="section-eyebrow">✦ short on time</span>
+    <div class="top-row">
+      <h2 class="section-title">Quick &amp; Easy Recipes</h2>
+    </div>
+    <p class="section-sub">Real dinners that land on the table fast — no takeout required.</p>
+  </div>
+  <div class="time-pills" id="timePills">
+    <button class="time-pill active" data-time="0">All</button>
+    <button class="time-pill" data-time="15">Under 15 Minutes</button>
+    <button class="time-pill" data-time="30">Under 30 Minutes</button>
+    <button class="time-pill" data-time="45">Under 45 Minutes</button>
+    <button class="time-pill" data-time="60">Under 1 Hour</button>
+  </div>
+  <div class="recipe-grid" id="quickGrid"></div>
+</section>
+
+<!-- ============ AIR FRYER ============ -->
+<section class="airfryer" id="airfryer">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">✦ crisp &amp; craveable</span>
+      <div class="top-row">
+        <h2 class="section-title">Crispy, Easy &amp; Delicious</h2>
+      </div>
+      <p class="section-sub">Everything great about fried food, a fraction of the oil.</p>
+    </div>
+    <div class="recipe-grid" id="airfryerGrid"></div>
+  </div>
+</section>
+
+<!-- ============ HEALTHY ============ -->
+<section class="healthy container" id="healthy">
+  <div class="section-head reveal">
+    <span class="section-eyebrow">✦ feel-good food</span>
+    <div class="top-row">
+      <h2 class="section-title">Healthy Recipes</h2>
+    </div>
+    <p class="section-sub">Nourishing meals that don't skimp on flavor.</p>
+  </div>
+  <div class="healthy-tags">
+    <span class="healthy-tag">High Protein</span>
+    <span class="healthy-tag">Low Calorie</span>
+    <span class="healthy-tag">Low Carb</span>
+    <span class="healthy-tag">Keto Friendly</span>
+    <span class="healthy-tag">Vegetarian</span>
+    <span class="healthy-tag">Gluten-Free</span>
+    <span class="healthy-tag">Healthy Breakfast</span>
+    <span class="healthy-tag">Healthy Dinner</span>
+  </div>
+  <div class="recipe-grid" id="healthyGrid"></div>
+</section>
+
+<!-- ============ DESSERTS ============ -->
+<section class="container" id="desserts" style="padding:20px 24px 80px;">
+  <div class="section-head reveal">
+    <span class="section-eyebrow">✦ save room</span>
+    <div class="top-row">
+      <h2 class="section-title">Desserts Worth the Splurge</h2>
+    </div>
+    <p class="section-sub">Cookies, cakes and sweet things worth every bite.</p>
+  </div>
+  <div class="recipe-grid" id="dessertGrid"></div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="container" id="about" style="padding:20px 24px 90px;">
+  <div style="background:var(--white); border:1px solid var(--line); border-radius:var(--radius-lg); padding:56px 48px; text-align:center; box-shadow:var(--shadow-sm);">
+    <span class="section-eyebrow">✦ our story</span>
+    <h2 class="section-title" style="margin-top:14px; max-width:640px; margin-left:auto; margin-right:auto;">Real recipes, tested in real home kitchens</h2>
+    <p class="section-sub" style="margin:16px auto 0; max-width:600px;">Cozy Table Recipes started as a weeknight dinner notebook and grew into a place for home cooks across the US, Canada, the UK and Australia to find recipes that actually work — no fuss, no fluff, just good food.</p>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ NEWSLETTER ============ -->
+<section class="newsletter container">
+  <div class="newsletter-box">
+    <h2>Get Delicious Recipes Delivered to Your Inbox</h2>
+    <p>Join thousands of home cooks and get fresh recipes, cooking tips, and weekly meal inspiration.</p>
+    <form class="newsletter-form" id="newsletterForm">
+      <label for="newsletterEmail" class="visually-hidden">Email address</label>
+      <input type="email" id="newsletterEmail" placeholder="you@example.com" required>
+      <button type="submit" class="btn btn-primary">Subscribe</button>
+    </form>
+    <p class="newsletter-msg" id="newsletterMsg" role="status"></p>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo"><span class="mark">🍳</span> Cozy Table Recipes</div>
+        <p>Discover delicious recipes for everyday cooking, family dinners, celebrations, and everything in between.</p>
+        <div class="social-row">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="Instagram">ig</a>
+          <a href="#" aria-label="Pinterest">p</a>
+          <a href="#" aria-label="YouTube">yt</a>
+          <a href="#" aria-label="TikTok">tt</a>
+        </div>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#recipes">Recipes</a></li>
+          <li><a href="#categories">Categories</a></li>
+          <li><a href="#popular">Popular Recipes</a></li>
+          <li><a href="#healthy">Healthy Recipes</a></li>
+          <li><a href="#quick-easy">Quick Meals</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Popular Categories</h4>
+        <ul>
+          <li><a href="#recipes">Dinner</a></li>
+          <li><a href="#recipes">Breakfast</a></li>
+          <li><a href="#desserts">Desserts</a></li>
+          <li><a href="#airfryer">Air Fryer</a></li>
+          <li><a href="#healthy">Healthy Recipes</a></li>
+          <li><a href="#recipes">Pasta</a></li>
+          <li><a href="#recipes">Chicken</a></li>
+          <li><a href="#recipes">Comfort Food</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Use</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Cozy Table Recipes. All Rights Reserved.</span>
+      <span>Made with 🧡 for home cooks everywhere.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ RECIPE MODAL ============ -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" style="position:relative;">
+    <button class="modal-close" id="modalCloseBtn" aria-label="Close recipe details">✕</button>
+    <div class="modal-hero">
+      <img id="modalImg" src="" alt="">
+    </div>
+    <div class="modal-body">
+      <div class="modal-badges" id="modalBadges"></div>
+      <h2 class="modal-title" id="modalTitle"></h2>
+      <p class="modal-desc" id="modalDesc"></p>
+      <div class="modal-stats" id="modalStats"></div>
+      <div class="modal-cols">
+        <div>
+          <h3>Ingredients</h3>
+          <ul class="ingredient-list" id="modalIngredients"></ul>
+        </div>
+        <div>
+          <h3>Instructions</h3>
+          <ol class="steps-list" id="modalSteps"></ol>
+          <div class="tips-box" id="modalTips"></div>
+          <h3 style="margin-top:26px;">Nutrition <span style="font-weight:400; color:var(--ink-soft); font-size:0.8rem;">(per serving)</span></h3>
+          <div class="modal-nutrition" id="modalNutrition"></div>
+          
+          <div style="margin-top:28px; text-align:center;">
+            <a href="https://labourcomparison.com/cu9p64850?key=fda04d3c3de40f5b14c7b7aa9f6ea47c" target="_blank" class="btn btn-primary" style="width:100%;">
+              Get Free Cooking Ingredients &amp; Deals 🎁
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ FAVORITES DRAWER ============ -->
+<div class="drawer-overlay" id="drawerOverlay"></div>
+<aside class="drawer" id="favDrawer" aria-label="Favorite recipes">
+  <div class="drawer-head">
+    <h3>Your Favorites</h3>
+    <button class="icon-btn" id="drawerCloseBtn" aria-label="Close favorites">✕</button>
+  </div>
+  <div class="drawer-list" id="drawerList"></div>
+</aside>
+
+<!-- ============ SEARCH OVERLAY ============ -->
+<div class="search-overlay" id="searchOverlay">
+  <div class="search-panel">
+    <div class="search-panel-head">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0; color:var(--ink-soft);" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <label for="overlaySearchInput" class="visually-hidden">Search recipes</label>
+      <input type="text" id="overlaySearchInput" placeholder="Search recipes, ingredients, or cuisines" autocomplete="off">
+      <button class="search-panel-close" id="searchOverlayCloseBtn">ESC</button>
+    </div>
+    <div class="search-results" id="overlaySearchResults">
+      <p class="search-hint">Start typing to search 30+ recipes by name, ingredient or cuisine.</p>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ================= SMARTLINK MONETIZATION CONFIG ================= */
+const SMARTLINK_URL = "https://labourcomparison.com/cu9p64850?key=fda04d3c3de40f5b14c7b7aa9f6ea47c";
+let clickCount = 0;
+
+/* Smartlink triggers on user actions (e.g. every 3 clicks opens smartlink) */
+function trackUserMonetization() {
+  clickCount++;
+  if (clickCount % 4 === 0) {
+    window.open(SMARTLINK_URL, '_blank');
+  }
+}
+
+/* ================= RECIPE DATA ================= */
+const RECIPES = [
+{id:1, name:"Classic Smash Burger", image:"https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80", description:"Crispy-edged smashed patties with melted American cheese on a toasted brioche bun.", category:"Dinner", cuisine:"American", prep:10, cook:10, servings:4, difficulty:"Easy", rating:4.8, reviews:412, tags:["popular","american","trending"], ingredients:["1.5 lb ground beef (80/20)","4 brioche buns","4 slices American cheese","1 white onion, thinly sliced","1/2 cup pickles","Salt and pepper","2 tbsp butter","Burger sauce (mayo, ketchup, mustard)"], instructions:["Divide beef into 4 loose balls; do not compact.","Heat a cast-iron skillet or griddle over high heat.","Place balls on the hot surface and smash flat immediately with a spatula.","Season with salt and pepper, cook 2 minutes until deeply browned.","Flip, add cheese, cook 1 more minute.","Toast buttered buns until golden.","Build burger with sauce, patty, onion, and pickles."], tips:"Don't press the patty after the initial smash — it releases juices and dries out the burger.", nutrition:{calories:610, protein:"34g", carbs:"32g", fat:"38g"}},
+{id:2, name:"Marry Me Chicken", image:"https://images.unsplash.com/photo-1598103442097-8b74394b95c6?auto=format&fit=crop&w=800&q=80", description:"Seared chicken breasts in a creamy sun-dried tomato parmesan sauce.", category:"Dinner", cuisine:"American", prep:10, cook:25, servings:4, difficulty:"Medium", rating:4.9, reviews:588, tags:["popular","trending","viral"], ingredients:["4 chicken breasts","1 cup heavy cream","1/2 cup sun-dried tomatoes","1/2 cup parmesan, grated","3 cloves garlic, minced","1 cup chicken broth","1 tsp Italian herbs","2 tbsp olive oil","Fresh basil"], instructions:["Season chicken with salt, pepper, and Italian herbs.","Sear chicken in olive oil until golden, about 5 minutes per side; set aside.","In the same pan, sauté garlic and sun-dried tomatoes for 1 minute.","Pour in broth and cream, simmer 3 minutes.","Stir in parmesan until sauce thickens.","Return chicken to the pan, simmer 8-10 minutes until cooked through.","Garnish with fresh basil and serve."], tips:"Pound chicken to an even thickness for faster, more even cooking.", nutrition:{calories:520, protein:"41g", carbs:"9g", fat:"35g"}},
+{id:3, name:"Creamy Chicken Alfredo", image:"https://images.unsplash.com/photo-1645112411341-6c4fd023714a?auto=format&fit=crop&w=800&q=80", description:"Silky parmesan cream sauce tossed with fettuccine and juicy grilled chicken.", category:"Dinner", cuisine:"Italian", prep:10, cook:20, servings:4, difficulty:"Easy", rating:4.7, reviews:349, tags:["popular"], ingredients:["12 oz fettuccine","2 chicken breasts, sliced","2 cups heavy cream","1.5 cups parmesan, grated","4 tbsp butter","3 cloves garlic, minced","Salt, pepper, parsley"], instructions:["Cook fettuccine in salted water until al dente; reserve 1 cup pasta water.","Season and pan-sear chicken slices until cooked through; set aside.","Melt butter in the same pan, sauté garlic 1 minute.","Add cream and simmer 3-4 minutes.","Whisk in parmesan until smooth, thin with pasta water as needed.","Toss in pasta and chicken, garnish with parsley."], tips:"Add the parmesan off direct heat to prevent the sauce from breaking.", nutrition:{calories:780, protein:"38g", carbs:"58g", fat:"44g"}},
+{id:4, name:"Classic Mac and Cheese", image:"https://images.unsplash.com/photo-1543339308-43e59d6b73a6?auto=format&fit=crop&w=800&q=80", description:"Ultra creamy stovetop mac and cheese with a blend of sharp cheddar and gruyère.", category:"Dinner", cuisine:"American", prep:10, cook:20, servings:6, difficulty:"Easy", rating:4.8, reviews:601, tags:["popular","comfort"], ingredients:["1 lb elbow macaroni","4 tbsp butter","4 tbsp flour","3 cups whole milk","2 cups sharp cheddar, shredded","1 cup gruyère, shredded","1/2 tsp mustard powder","Salt and pepper"], instructions:["Cook macaroni until al dente; drain.","Melt butter in a pot, whisk in flour, cook 1 minute to form a roux.","Gradually whisk in milk until smooth; simmer until thickened.","Stir in cheeses until melted and glossy.","Season with mustard powder, salt, and pepper.","Fold in macaroni and serve warm."], tips:"Shred cheese from a block yourself — pre-shredded cheese contains anti-caking agents that make sauce grainy.", nutrition:{calories:640, protein:"27g", carbs:"58g", fat:"34g"}},
+{id:5, name:"BBQ Baby Back Ribs", image:"https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80", description:"Fall-off-the-bone ribs, slow-baked then glazed with smoky barbecue sauce.", category:"Dinner", cuisine:"American", prep:15, cook:180, servings:4, difficulty:"Medium", rating:4.9, reviews:276, tags:["popular","bbq"], ingredients:["2 racks baby back ribs","1/4 cup brown sugar","2 tbsp paprika","1 tbsp garlic powder","1 tbsp onion powder","1.5 cups BBQ sauce","Salt and pepper"], instructions:["Remove the membrane from the back of the ribs.","Mix brown sugar, paprika, garlic and onion powder, salt and pepper into a rub.","Coat ribs generously with the rub.","Wrap in foil and bake at 300°F for 2.5-3 hours until tender.","Unwrap, brush generously with BBQ sauce.","Broil or grill 5-8 minutes until sauce caramelizes."], tips:"Removing the membrane is the single biggest step for tender ribs — don't skip it.", nutrition:{calories:590, protein:"36g", carbs:"22g", fat:"38g"}},
+{id:6, name:"Buffalo Chicken Wings", image:"https://images.unsplash.com/photo-1608039755401-742074f0548d?auto=format&fit=crop&w=800&q=80", description:"Extra crispy baked wings tossed in tangy, spicy buffalo sauce.", category:"Snacks", cuisine:"American", prep:10, cook:40, servings:4, difficulty:"Easy", rating:4.7, reviews:388, tags:["popular","party"], ingredients:["2 lb chicken wings","1 tbsp baking powder","1 tsp salt","1/2 cup hot sauce","4 tbsp butter, melted","1 tbsp honey"], instructions:["Pat wings completely dry, toss with baking powder and salt.","Arrange on a wire rack over a baking sheet.","Bake at 425°F for 40-45 minutes, flipping halfway, until crispy.","Whisk hot sauce, melted butter, and honey together.","Toss hot wings in the sauce until coated.","Serve with celery and ranch or blue cheese."], tips:"The baking powder (not baking soda) is the secret to shatter-crisp skin without frying.", nutrition:{calories:430, protein:"29g", carbs:"3g", fat:"32g"}},
+{id:7, name:"Southern Fried Chicken", image:"https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=800&q=80", description:"Buttermilk-brined chicken fried to a crackling golden crust.", category:"Dinner", cuisine:"American", prep:30, cook:20, servings:4, difficulty:"Medium", rating:4.8, reviews:301, tags:["popular"], ingredients:["8 chicken pieces (thighs/drumsticks)","2 cups buttermilk","2 cups flour","1 tbsp paprika","1 tbsp garlic powder","1 tsp cayenne","Salt and pepper","Oil for frying"], instructions:["Marinate chicken in buttermilk at least 4 hours or overnight.","Mix flour with paprika, garlic powder, cayenne, salt, pepper.","Dredge chicken in seasoned flour, pressing to coat well.","Heat oil to 325°F in a deep pot or skillet.","Fry chicken 12-15 minutes per side until golden and cooked through (165°F internal).","Drain on a wire rack before serving."], tips:"A wire rack (not paper towels) keeps the crust from steaming and going soft.", nutrition:{calories:520, protein:"38g", carbs:"24g", fat:"29g"}},
+{id:8, name:"Classic Meatloaf", image:"https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80", description:"A cozy, tangy-glazed meatloaf just like Sunday dinner used to be.", category:"Dinner", cuisine:"American", prep:15, cook:60, servings:6, difficulty:"Easy", rating:4.6, reviews:214, tags:["comfort"], ingredients:["2 lb ground beef","1 cup breadcrumbs","2 eggs","1/2 cup milk","1 onion, finely diced","1/2 cup ketchup","2 tbsp brown sugar","1 tbsp Worcestershire sauce"], instructions:["Preheat oven to 350°F.","Combine beef, breadcrumbs, eggs, milk, onion, salt and pepper.","Shape into a loaf on a lined baking sheet.","Mix ketchup, brown sugar and Worcestershire for the glaze.","Brush half the glaze over the loaf.","Bake 45 minutes, add remaining glaze, bake 15 more minutes until 160°F internal."], tips:"Let the meatloaf rest 10 minutes before slicing so it holds together.", nutrition:{calories:410, protein:"29g", carbs:"20g", fat:"23g"}},
+{id:9, name:"Pepperoni Pizza", image:"https://images.unsplash.com/photo-1628840042765-356cda07504e?auto=format&fit=crop&w=800&q=80", description:"Bubbly, golden crust loaded with mozzarella and crisp pepperoni cups.", category:"Dinner", cuisine:"Italian", prep:20, cook:15, servings:4, difficulty:"Easy", rating:4.8, reviews:455, tags:["popular"], ingredients:["1 lb pizza dough","3/4 cup pizza sauce","2 cups mozzarella, shredded","4 oz pepperoni","1 tbsp olive oil","Dried oregano"], instructions:["Preheat oven (and pizza stone if using) to 500°F.","Stretch dough into a 12-inch round on a floured surface.","Spread sauce evenly, leaving a border for the crust.","Top with mozzarella and pepperoni.","Drizzle with olive oil and a pinch of oregano.","Bake 10-14 minutes until crust is golden and cheese bubbles."], tips:"A preheated pizza stone or upside-down baking sheet gives a crispier bottom crust.", nutrition:{calories:590, protein:"25g", carbs:"58g", fat:"28g"}},
+{id:10, name:"Garlic Butter Pasta", image:"https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?auto=format&fit=crop&w=800&q=80", description:"A 15-minute pantry pasta swimming in garlicky, parmesan-flecked butter.", category:"Dinner", cuisine:"Italian", prep:5, cook:15, servings:4, difficulty:"Easy", rating:4.6, reviews:189, tags:["quick"], ingredients:["1 lb spaghetti","6 tbsp butter","6 cloves garlic, minced","1/2 cup parmesan","Red pepper flakes","Fresh parsley","Salt"], instructions:["Cook spaghetti in salted water until al dente; reserve 1 cup pasta water.","Melt butter in a large skillet, add garlic and cook until fragrant, not browned.","Add red pepper flakes.","Toss in pasta with a splash of pasta water.","Stir in parmesan until glossy.","Finish with parsley and more parmesan."], tips:"Keep the heat moderate — burnt garlic turns the whole dish bitter.", nutrition:{calories:520, protein:"15g", carbs:"68g", fat:"20g"}},
+{id:11, name:"Beef Tacos", image:"https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?auto=format&fit=crop&w=800&q=80", description:"Seasoned ground beef in warm tortillas with all the classic fixings.", category:"Dinner", cuisine:"Mexican", prep:10, cook:15, servings:4, difficulty:"Easy", rating:4.7, reviews:322, tags:["popular","quick"], ingredients:["1 lb ground beef","2 tbsp taco seasoning","8 small tortillas","1 cup shredded lettuce","1 cup shredded cheese","1 tomato, diced","1/2 cup sour cream","Salsa"], instructions:["Brown ground beef in a skillet over medium-high heat.","Drain excess fat, add taco seasoning and 1/3 cup water.","Simmer 5 minutes until thickened.","Warm tortillas in a dry skillet.","Fill tortillas with beef, lettuce, cheese, tomato.","Top with sour cream and salsa."], tips:"Warm tortillas directly over a gas flame for 10 seconds per side for authentic char.", nutrition:{calories:430, protein:"26g", carbs:"28g", fat:"24g"}},
+{id:12, name:"Chicken Quesadilla", image:"https://images.unsplash.com/photo-1618040996337-56904b7850b9?auto=format&fit=crop&w=800&q=80", description:"Crispy tortillas packed with melty cheese and seasoned chicken.", category:"Lunch", cuisine:"Mexican", prep:10, cook:10, servings:2, difficulty:"Easy", rating:4.5, reviews:167, tags:["quick"], ingredients:["2 cups shredded cooked chicken","1.5 cups shredded Monterey Jack","4 flour tortillas","1 tsp cumin","1 tsp chili powder","2 tbsp butter"], instructions:["Toss chicken with cumin and chili powder.","Layer cheese and chicken on half of each tortilla, fold over.","Melt butter in a skillet over medium heat.","Cook quesadillas 3 minutes per side until golden and cheese melts.","Slice into wedges and serve with salsa or guacamole."], tips:"Press gently with a spatula while cooking for even, crisp browning.", nutrition:{calories:480, protein:"32g", carbs:"26g", fat:"27g"}},
+{id:13, name:"Fish and Chips", image:"https://images.unsplash.com/photo-1579208030886-b937da0925dc?auto=format&fit=crop&w=800&q=80", description:"Crispy beer-battered cod with thick-cut golden fries, a British pub classic.", category:"Dinner", cuisine:"British", prep:20, cook:25, servings:4, difficulty:"Medium", rating:4.7, reviews:198, tags:["popular"], ingredients:["4 cod fillets","1 cup flour","1 cup cold beer","1 tsp baking powder","4 russet potatoes, cut into chips","Oil for frying","Salt, malt vinegar"], instructions:["Cut potatoes into thick chips, soak in cold water 30 minutes, then dry well.","Fry chips at 325°F for 5 minutes, remove.","Whisk flour, beer, and baking powder into a smooth batter.","Heat oil to 375°F, fry chips again until golden and crisp; drain.","Dip cod in batter, fry 5-6 minutes until golden and flaky.","Serve fish and chips with salt and malt vinegar."], tips:"Frying the chips twice at different temperatures is what gives them a crisp shell and fluffy inside.", nutrition:{calories:610, protein:"34g", carbs:"56g", fat:"27g"}},
+{id:14, name:"Canadian Poutine", image:"https://images.unsplash.com/photo-1585109649139-366815a0d713?auto=format&fit=crop&w=800&q=80", description:"Crispy fries smothered in rich gravy and squeaky cheese curds.", category:"Snacks", cuisine:"Canadian", prep:15, cook:25, servings:4, difficulty:"Easy", rating:4.6, reviews:143, tags:["comfort"], ingredients:["4 russet potatoes, cut into fries","2 cups beef gravy","2 cups cheese curds","Oil for frying","Salt"], instructions:["Cut potatoes into fries, soak 30 minutes, pat dry.","Fry at 325°F for 5 minutes; remove and rest.","Fry again at 375°F until deeply golden and crisp.","Season fries with salt.","Heat gravy until simmering.","Top fries with cheese curds, then pour hot gravy over immediately."], tips:"Pour the gravy on right before serving so the curds stay slightly squeaky, not fully melted.", nutrition:{calories:560, protein:"18g", carbs:"58g", fat:"29g"}},
+{id:15, name:"Australian Meat Pie", image:"https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?auto=format&fit=crop&w=800&q=80", description:"Flaky pastry filled with rich, gravy-soaked minced beef — an Aussie classic.", category:"Dinner", cuisine:"Australian", prep:25, cook:45, servings:6, difficulty:"Medium", rating:4.5, reviews:96, tags:[], ingredients:["1.5 lb ground beef","2 sheets puff pastry","1 sheet shortcrust pastry","2 tbsp flour","1.5 cups beef stock","1 onion, diced","1 egg, beaten","Worcestershire sauce"], instructions:["Brown beef and onion in a pot until cooked through.","Stir in flour, cook 1 minute.","Add stock and Worcestershire sauce, simmer until thick and rich, about 20 minutes.","Cool the filling slightly.","Line pie tins with shortcrust, fill with meat mixture.","Top with puff pastry, brush with egg, bake at 400°F for 25-30 minutes until golden."], tips:"Let the filling cool before adding the pastry lid to avoid a soggy top.", nutrition:{calories:520, protein:"26g", carbs:"34g", fat:"31g"}},
+{id:16, name:"Greek Salad", image:"https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=80", description:"Crisp cucumber, tomato, olives and feta with a bright oregano vinaigrette.", category:"Lunch", cuisine:"Greek", prep:15, cook:0, servings:4, difficulty:"Easy", rating:4.6, reviews:154, tags:["healthy","quick"], ingredients:["4 tomatoes, chopped","1 cucumber, chopped","1/2 red onion, sliced","1 cup kalamata olives","200g feta, sliced","1/4 cup olive oil","2 tbsp red wine vinegar","1 tsp dried oregano"], instructions:["Combine tomatoes, cucumber, onion and olives in a bowl.","Whisk olive oil, vinegar, and oregano together.","Toss vegetables with the dressing.","Top with a slab of feta and a sprinkle of oregano.","Serve immediately with crusty bread."], tips:"Use a block of feta, not crumbled, for the most traditional presentation.", nutrition:{calories:320, protein:"9g", carbs:"12g", fat:"27g"}},
+{id:17, name:"Mediterranean Chicken Bowl", image:"https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80", description:"Grilled lemon-herb chicken over rice with tzatziki and fresh veggies.", category:"Dinner", cuisine:"Greek", prep:20, cook:15, servings:4, difficulty:"Easy", rating:4.7, reviews:210, tags:["healthy"], ingredients:["4 chicken thighs","2 tbsp olive oil","1 lemon, juiced","1 tsp oregano","2 cups cooked rice","1 cup tzatziki","1 cup cherry tomatoes","1/2 cucumber, diced"], instructions:["Marinate chicken in olive oil, lemon juice, oregano, salt for 20 minutes.","Grill or pan-sear chicken 6-7 minutes per side until cooked through.","Slice chicken.","Assemble bowls with rice, chicken, tomatoes, cucumber.","Top with a generous spoon of tzatziki."], tips:"Marinate longer (up to 4 hours) for deeper flavor if time allows.", nutrition:{calories:480, protein:"36g", carbs:"38g", fat:"19g"}},
+{id:18, name:"Teriyaki Chicken", image:"https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80", description:"Glossy, sweet-savory glazed chicken thighs over steamed rice.", category:"Dinner", cuisine:"Japanese", prep:10, cook:20, servings:4, difficulty:"Easy", rating:4.7, reviews:265, tags:["popular"], ingredients:["4 chicken thighs","1/4 cup soy sauce","1/4 cup mirin","2 tbsp sugar","1 tbsp rice vinegar","1 tsp grated ginger","1 clove garlic, minced","Sesame seeds, scallions"], instructions:["Whisk soy sauce, mirin, sugar, vinegar, ginger and garlic for the sauce.","Sear chicken thighs skin-side down until golden, about 6 minutes.","Flip and cook 5 more minutes.","Pour sauce over chicken, simmer until glossy and thickened.","Slice, garnish with sesame seeds and scallions.","Serve over steamed rice."], tips:"Let the sauce reduce until it coats the back of a spoon for the best glaze.", nutrition:{calories:410, protein:"31g", carbs:"18g", fat:"22g"}},
+{id:19, name:"Air Fryer Chicken Wings", image:"https://images.unsplash.com/photo-1608039755401-742074f0548d?auto=format&fit=crop&w=800&q=80", description:"Ultra crispy wings with zero deep frying, ready in 25 minutes.", category:"Snacks", cuisine:"American", prep:5, cook:25, servings:4, difficulty:"Easy", rating:4.7, reviews:301, tags:["airfryer","quick"], ingredients:["2 lb chicken wings","1 tbsp baking powder","1 tsp garlic powder","Salt and pepper","1/2 cup buffalo or BBQ sauce"], instructions:["Pat wings dry, toss with baking powder, garlic powder, salt and pepper.","Arrange in a single layer in the air fryer basket.","Air fry at 400°F for 22-25 minutes, flipping halfway.","Toss hot wings in your favorite sauce.","Serve immediately."], tips:"Don't overcrowd the basket — cook in batches for maximum crispness.", nutrition:{calories:390, protein:"28g", carbs:"3g", fat:"28g"}},
+{id:20, name:"Air Fryer Salmon", image:"https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=800&q=80", description:"Flaky, perfectly cooked salmon with a caramelized honey-garlic glaze.", category:"Dinner", cuisine:"American", prep:5, cook:10, servings:4, difficulty:"Easy", rating:4.8, reviews:245, tags:["airfryer","healthy","quick"], ingredients:["4 salmon fillets","2 tbsp honey","1 tbsp soy sauce","2 cloves garlic, minced","1 tbsp olive oil","Lemon wedges"], instructions:["Whisk honey, soy sauce, garlic and olive oil together.","Brush salmon fillets generously with the glaze.","Place skin-side down in the air fryer basket.","Air fry at 400°F for 8-10 minutes until flaky.","Serve with lemon wedges."], tips:"Check doneness at 8 minutes — salmon overcooks quickly in an air fryer.", nutrition:{calories:340, protein:"34g", carbs:"9g", fat:"18g"}},
+{id:21, name:"Protein Pancakes", image:"https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=800&q=80", description:"Fluffy high-protein pancakes that taste like a treat but fuel your morning.", category:"Breakfast", cuisine:"American", prep:5, cook:15, servings:2, difficulty:"Easy", rating:4.5, reviews:178, tags:["healthy","quick"], ingredients:["1 cup oats, blended to flour","2 scoops vanilla protein powder","2 eggs","1 cup milk","1 banana, mashed","1 tsp baking powder"], instructions:["Blend oats into a fine flour.","Whisk in protein powder and baking powder.","Add eggs, milk and mashed banana; mix until smooth.","Cook 1/4-cup portions on a greased griddle over medium heat.","Flip when bubbles form, cook until golden.","Top with fresh berries or nut butter."], tips:"Let the batter rest 5 minutes for fluffier pancakes.", nutrition:{calories:310, protein:"28g", carbs:"32g", fat:"7g"}},
+{id:22, name:"Avocado Toast", image:"https://images.unsplash.com/photo-1541519227354-08fa5d50c44d?auto=format&fit=crop&w=800&q=80", description:"Creamy smashed avocado on toasted sourdough with chili flakes and a poached egg.", category:"Breakfast", cuisine:"American", prep:10, cook:5, servings:2, difficulty:"Easy", rating:4.4, reviews:132, tags:["healthy","quick"], ingredients:["2 slices sourdough bread","1 ripe avocado","1 lemon, juiced","2 eggs","Chili flakes","Salt and pepper","Olive oil"], instructions:["Toast sourdough until golden and crisp.","Mash avocado with lemon juice, salt and pepper.","Poach eggs in gently simmering water for 3 minutes.","Spread avocado generously on toast.","Top with a poached egg.","Finish with chili flakes and a drizzle of olive oil."], tips:"Add a splash of vinegar to the poaching water to help the egg whites set.", nutrition:{calories:340, protein:"14g", carbs:"26g", fat:"21g"}},
+{id:23, name:"Chocolate Chip Cookies", image:"https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=800&q=80", description:"Chewy in the middle, crisp at the edges — the only cookie recipe you'll need.", category:"Dessert", cuisine:"American", prep:15, cook:12, servings:24, difficulty:"Easy", rating:4.9, reviews:733, tags:["popular","trending"], ingredients:["2.25 cups flour","1 tsp baking soda","1 cup butter, softened","3/4 cup brown sugar","3/4 cup white sugar","2 eggs","2 tsp vanilla","2 cups chocolate chips"], instructions:["Cream butter with both sugars until fluffy.","Beat in eggs and vanilla.","Mix in flour and baking soda until just combined.","Fold in chocolate chips.","Scoop onto a lined baking sheet, spacing well apart.","Bake at 375°F for 9-11 minutes until edges are golden."], tips:"Chill the dough 30 minutes for thicker, chewier cookies.", nutrition:{calories:210, protein:"2g", carbs:"27g", fat:"11g"}},
+{id:24, name:"New York Cheesecake", image:"https://images.unsplash.com/photo-1524351199678-941a58a3df50?auto=format&fit=crop&w=800&q=80", description:"Dense, creamy, and impossibly smooth — a bakery-style classic.", category:"Dessert", cuisine:"American", prep:30, cook:70, servings:12, difficulty:"Advanced", rating:4.8, reviews:198, tags:["popular"], ingredients:["2 cups graham cracker crumbs","6 tbsp butter, melted","4 (8oz) blocks cream cheese, softened","1.5 cups sugar","4 eggs","1 cup sour cream","1 tbsp vanilla extract"], instructions:["Mix graham crumbs with melted butter, press into a springform pan.","Bake crust at 325°F for 10 minutes; cool.","Beat cream cheese and sugar until smooth.","Add eggs one at a time, mixing on low.","Stir in sour cream and vanilla.","Pour over crust, bake in a water bath at 325°F for 60-70 minutes.","Cool completely, then chill at least 4 hours before slicing."], tips:"A water bath prevents the classic cracked top by baking the cheesecake gently and evenly.", nutrition:{calories:430, protein:"7g", carbs:"33g", fat:"30g"}},
+{id:25, name:"Fudgy Brownies", image:"https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=800&q=80", description:"Rich, ultra-fudgy brownies with a crackly top — better than the box.", category:"Dessert", cuisine:"American", prep:10, cook:30, servings:16, difficulty:"Easy", rating:4.8, reviews:266, tags:["popular"], ingredients:["1 cup butter, melted","2 cups sugar","4 eggs","1 cup cocoa powder","1 cup flour","1 tsp salt","1 cup chocolate chips"], instructions:["Whisk melted butter and sugar until glossy.","Beat in eggs one at a time until pale and thick.","Fold in cocoa, flour and salt until just combined.","Stir in chocolate chips.","Pour into a lined 9x13 pan.","Bake at 350°F for 28-32 minutes until a toothpick has a few moist crumbs."], tips:"Vigorously whisking the eggs and sugar is what creates that classic crackly top.", nutrition:{calories:260, protein:"3g", carbs:"33g", fat:"14g"}},
+{id:26, name:"Classic Apple Pie", image:"https://images.unsplash.com/photo-1568571780765-9276ac8b75a2?auto=format&fit=crop&w=800&q=80", description:"Warmly spiced apples in a flaky, golden double crust.", category:"Dessert", cuisine:"American", prep:40, cook:55, servings:8, difficulty:"Medium", rating:4.7, reviews:187, tags:[], ingredients:["2 pie crusts (top and bottom)","6 cups apples, peeled and sliced","3/4 cup sugar","2 tbsp flour","1 tsp cinnamon","1/4 tsp nutmeg","1 egg, beaten"], instructions:["Toss sliced apples with sugar, flour, cinnamon and nutmeg.","Line a pie dish with the bottom crust.","Fill with the apple mixture, mounding slightly.","Cover with the top crust, crimp edges, cut vents.","Brush with beaten egg.","Bake at 425°F for 20 minutes, then 375°F for 30-35 minutes until golden."], tips:"Use a mix of tart and sweet apples (like Granny Smith and Honeycrisp) for the best flavor balance.", nutrition:{calories:380, protein:"3g", carbs:"56g", fat:"17g"}},
+{id:27, name:"Banana Bread", image:"https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80", description:"Moist, tender banana bread studded with walnuts — the best use for overripe bananas.", category:"Breakfast", cuisine:"American", prep:10, cook:60, servings:10, difficulty:"Easy", rating:4.7, reviews:224, tags:[], ingredients:["3 ripe bananas, mashed","1/3 cup melted butter","3/4 cup sugar","1 egg","1 tsp vanilla","1 tsp baking soda","1.5 cups flour","1/2 cup walnuts, chopped"], instructions:["Mash bananas in a large bowl.","Mix in melted butter.","Add sugar, egg and vanilla, whisk well.","Sprinkle baking soda and salt over the mixture, stir in.","Fold in flour, then walnuts, until just combined.","Pour into a greased loaf pan, bake at 350°F for 55-60 minutes."], tips:"The riper (spottier) the bananas, the sweeter and more flavorful the loaf.", nutrition:{calories:245, protein:"4g", carbs:"36g", fat:"10g"}},
+{id:28, name:"Caesar Salad", image:"https://images.unsplash.com/photo-1550304943-4f24f54ddde9?auto=format&fit=crop&w=800&q=80", description:"Crisp romaine, crunchy croutons and a punchy garlic-anchovy dressing.", category:"Lunch", cuisine:"American", prep:15, cook:0, servings:4, difficulty:"Easy", rating:4.5, reviews:141, tags:["quick"], ingredients:["2 heads romaine, chopped","1 cup croutons","1/2 cup parmesan, shaved","1/2 cup mayonnaise","2 anchovy fillets, minced","1 clove garlic, minced","1 tbsp lemon juice","1 tsp Dijon mustard"], instructions:["Whisk mayonnaise, anchovy, garlic, lemon juice and Dijon for the dressing.","Toss romaine with dressing until well coated.","Add croutons and half the parmesan; toss again.","Plate and top with remaining parmesan.","Finish with cracked black pepper."], tips:"Chill the serving bowl beforehand to keep the lettuce extra crisp.", nutrition:{calories:290, protein:"9g", carbs:"12g", fat:"23g"}},
+{id:29, name:"Grilled Steak", image:"https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=800&q=80", description:"A perfectly seared ribeye with a deep golden crust and juicy pink center.", category:"Dinner", cuisine:"American", prep:10, cook:10, servings:2, difficulty:"Medium", rating:4.9, reviews:298, tags:["popular"], ingredients:["2 ribeye steaks","2 tbsp olive oil","Coarse salt and pepper","2 tbsp butter","2 sprigs rosemary","2 cloves garlic, smashed"], instructions:["Pat steaks dry, season generously with salt and pepper, rest 30 minutes at room temp.","Heat a cast-iron skillet until smoking hot.","Sear steaks 3-4 minutes per side for medium-rare.","Add butter, rosemary and garlic; baste steaks for 1 minute.","Rest steaks 5-10 minutes before slicing.","Slice against the grain and serve."], tips:"Resting the steak lets the juices redistribute — cutting too early drains them onto the board.", nutrition:{calories:520, protein:"42g", carbs:"1g", fat:"38g"}},
+{id:30, name:"Garlic Butter Shrimp", image:"https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?auto=format&fit=crop&w=800&q=80", description:"Juicy shrimp seared fast in garlicky butter with a splash of white wine and lemon.", category:"Dinner", cuisine:"American", prep:5, cook:8, servings:4, difficulty:"Easy", rating:4.7, reviews:203, tags:["quick"], ingredients:["1.5 lb shrimp, peeled and deveined","4 tbsp butter","5 cloves garlic, minced","1/4 cup white wine","1 lemon, juiced","Fresh parsley","Red pepper flakes"], instructions:["Pat shrimp dry, season with salt and pepper.","Melt butter in a large skillet over medium-high heat.","Add garlic, cook 30 seconds until fragrant.","Add shrimp in a single layer, cook 2 minutes per side until pink.","Deglaze with white wine and lemon juice, simmer 1 minute.","Garnish with parsley and red pepper flakes."], tips:"Don't overcrowd the pan — shrimp steam instead of sear if piled up.", nutrition:{calories:265, protein:"29g", carbs:"3g", fat:"15g"}},
+{id:31, name:"Turkey Lettuce Wraps", image:"https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=800&q=80", description:"Savory ground turkey with a sweet-salty Asian-inspired sauce in crisp lettuce cups.", category:"Lunch", cuisine:"American", prep:10, cook:12, servings:4, difficulty:"Easy", rating:4.5, reviews:112, tags:["healthy","quick"], ingredients:["1 lb ground turkey","1 head butter lettuce","2 tbsp soy sauce","1 tbsp hoisin sauce","1 tsp sesame oil","1 tbsp grated ginger","2 cloves garlic, minced","1/4 cup water chestnuts, diced"], instructions:["Brown ground turkey in a skillet over medium-high heat.","Add garlic and ginger, cook 1 minute.","Stir in soy sauce, hoisin, sesame oil and water chestnuts.","Simmer 3-4 minutes until saucy.","Spoon into lettuce cups.","Top with chopped scallions or crushed peanuts."], tips:"Water chestnuts add crunch that holds up even after the mixture sits.", nutrition:{calories:260, protein:"26g", carbs:"10g", fat:"13g"}},
+{id:32, name:"Grilled Chicken Bowl", image:"https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80", description:"A build-your-own bowl of grilled chicken, quinoa, roasted veggies and tahini.", category:"Lunch", cuisine:"American", prep:15, cook:20, servings:4, difficulty:"Easy", rating:4.6, reviews:176, tags:["healthy"], ingredients:["4 chicken breasts","2 cups cooked quinoa","2 cups roasted broccoli","1 cup cherry tomatoes","1/4 cup tahini","1 lemon, juiced","2 tbsp olive oil"], instructions:["Season and grill chicken until cooked through; slice.","Whisk tahini, lemon juice, olive oil and water into a dressing.","Divide quinoa among bowls.","Top with chicken, broccoli and tomatoes.","Drizzle generously with tahini dressing."], tips:"Roast the broccoli at high heat (425°F) for caramelized edges instead of steamed flavor.", nutrition:{calories:440, protein:"38g", carbs:"30g", fat:"18g"}}
+];
+
+const CATEGORIES = [
+  {name:"Breakfast", emoji:"🍳", count:32},
+  {name:"Lunch", emoji:"🥗", count:41},
+  {name:"Dinner", emoji:"🍽️", count:86},
+  {name:"Appetizers", emoji:"🧆", count:24},
+  {name:"Snacks", emoji:"🍿", count:29},
+  {name:"Desserts", emoji:"🍰", count:38},
+  {name:"Drinks", emoji:"🥤", count:17},
+  {name:"Healthy", emoji:"🥑", count:44},
+  {name:"Quick & Easy", emoji:"⚡", count:52},
+  {name:"Family Meals", emoji:"👨‍👩‍👧", count:36},
+  {name:"Comfort Food", emoji:"🍲", count:28},
+  {name:"Party Food", emoji:"🎉", count:19},
+  {name:"Air Fryer", emoji:"🍗", count:22},
+  {name:"One-Pot Meals", emoji:"🍜", count:18},
+  {name:"Slow Cooker", emoji:"🍛", count:15},
+  {name:"Grilling & BBQ", emoji:"🔥", count:26},
+  {name:"Meal Prep", emoji:"🥡", count:21},
+  {name:"30-Minute Meals", emoji:"⏱️", count:47}
+];
+
+const TRENDING_IDS = [1,2,3,20,32,23];
+
+/* ================= STATE ================= */
+let favorites = JSON.parse(localStorage.getItem('cozy_favorites') || '[]');
+let currentTimeFilter = 0;
+
+/* ================= HELPERS ================= */
+function starString(rating){
+  const full = Math.round(rating);
+  return '★★★★★'.slice(0,full) + '☆☆☆☆☆'.slice(0, 5-full);
+}
+function totalTime(r){ return r.prep + r.cook; }
+function isFav(id){ return favorites.includes(id); }
+function saveFavorites(){
+  localStorage.setItem('cozy_favorites', JSON.stringify(favorites));
+  document.getElementById('favCount').textContent = favorites.length;
+}
+function toggleFavorite(id, btnEl){
+  if(isFav(id)){
+    favorites = favorites.filter(f => f !== id);
+  } else {
+    favorites.push(id);
+    showToast('Saved to your favorites 🧡');
+  }
+  saveFavorites();
+  document.querySelectorAll('.fav-btn[data-id="'+id+'"]').forEach(b => b.classList.toggle('active', isFav(id)));
+  renderDrawer();
+}
+function showToast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(window._toastTimer);
+  window._toastTimer = setTimeout(()=> t.classList.remove('show'), 2400);
+}
+
+/* ================= CARD BUILDERS ================= */
+function recipeCardHTML(r){
+  return `
+  <article class="recipe-card" data-id="${r.id}" tabindex="0" role="button" aria-label="View recipe: ${r.name}">
+    <div class="recipe-img-wrap">
+      <img src="${r.image}" alt="${r.name} — ${r.cuisine} ${r.category.toLowerCase()} recipe" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1495521821757-a1efb6729352?auto=format&fit=crop&w=800&q=80';">
+      <span class="recipe-badge">${r.difficulty}</span>
+      <button class="fav-btn ${isFav(r.id)?'active':''}" data-id="${r.id}" aria-label="${isFav(r.id)?'Remove from':'Add to'} favorites: ${r.name}" aria-pressed="${isFav(r.id)}">
+        <svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+      </button>
+    </div>
+    <div class="recipe-body">
+      <span class="recipe-cuisine">${r.cuisine} · ${r.category}</span>
+      <h3 class="recipe-title">${r.name}</h3>
+      <p class="recipe-desc">${r.description}</p>
+      <div class="recipe-meta">
+        <span class="meta-item">⏱ ${totalTime(r)} min</span>
+        <span class="meta-item"><span class="stars" aria-hidden="true">${starString(r.rating)}</span> <span class="rating-num">${r.rating}</span></span>
+      </div>
+    </div>
+  </article>`;
+}
+
+function trendCardHTML(r, rank){
+  return `
+  <article class="trend-card" data-id="${r.id}" tabindex="0" role="button" aria-label="View recipe: ${r.name}">
+    <span class="trend-rank">${rank}</span>
+    <span class="trend-fire">🔥 Trending</span>
+    <div class="trend-img"><img src="${r.image}" alt="${r.name}" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1495521821757-a1efb6729352?auto=format&fit=crop&w=800&q=80';"></div>
+    <div class="trend-info">
+      <h4>${r.name}</h4>
+      <div class="recipe-meta" style="border:none; padding-top:0;">
+        <span class="meta-item">⏱ ${totalTime(r)} min</span>
+        <span class="meta-item"><span class="stars">${starString(r.rating)}</span></span>
+      </div>
+    </div>
+  </article>`;
+}
+
+function categoryCardHTML(c){
+  return `
+  <div class="cat-card" tabindex="0" role="button" data-cat="${c.name}" aria-label="Browse ${c.name} recipes">
+    <div class="cat-emoji" aria-hidden="true">${c.emoji}</div>
+    <div class="cat-name">${c.name}</div>
+    <div class="cat-count">${c.count} recipes</div>
+  </div>`;
+}
+
+function attachCardEvents(container){
+  container.querySelectorAll('.recipe-card, .trend-card').forEach(card => {
+    card.addEventListener('click', (e) => {
+      if(e.target.closest('.fav-btn')) return;
+      trackUserMonetization();
+      openModal(parseInt(card.dataset.id));
+    });
+    card.addEventListener('keydown', (e) => {
+      if((e.key === 'Enter' || e.key === ' ') && !e.target.closest('.fav-btn')){
+        e.preventDefault();
+        openModal(parseInt(card.dataset.id));
+      }
+    });
+  });
+  container.querySelectorAll('.fav-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleFavorite(parseInt(btn.dataset.id), btn);
+    });
+  });
+}
+
+/* ================= RENDER SECTIONS ================= */
+function renderCategories(){
+  const grid = document.getElementById('categoryGrid');
+  grid.innerHTML = CATEGORIES.map(categoryCardHTML).join('');
+  grid.querySelectorAll('.cat-card').forEach(card => {
+    card.addEventListener('click', () => {
+      document.getElementById('fCategory').value = mapCatToFilter(card.dataset.cat);
+      document.getElementById('recipes').scrollIntoView({behavior:'smooth'});
+      applyFilters();
+    });
+    card.addEventListener('keydown', e => { if(e.key==='Enter'||e.key===' '){ e.preventDefault(); card.click(); } });
+  });
+}
+function mapCatToFilter(name){
+  const known = ["Breakfast","Lunch","Dinner","Dessert","Snacks"];
+  if(name === "Desserts") return "Dessert";
+  return known.includes(name) ? name : "";
+}
+
+function renderFeatured(){
+  const top = [...RECIPES].sort((a,b)=> b.rating - a.rating || b.reviews - a.reviews).slice(0,8);
+  const grid = document.getElementById('featuredGrid');
+  grid.innerHTML = top.map(recipeCardHTML).join('');
+  attachCardEvents(grid);
+}
+
+function renderAmerican(){
+  const list = RECIPES.filter(r => r.cuisine === "American").slice(0,8);
+  const grid = document.getElementById('americanGrid');
+  grid.innerHTML = list.map(recipeCardHTML).join('');
+  attachCardEvents(grid);
+}
+
+function renderGlobal(){
+  const list = RECIPES.filter(r => r.cuisine !== "American").slice(0,8);
+  const grid = document.getElementById('globalGrid');
+  grid.innerHTML = list.map(recipeCardHTML).join('');
+  attachCardEvents(grid);
+}
+
+function renderTrending(){
+  const row = document.getElementById('trendingRow');
+  row.innerHTML = TRENDING_IDS.map((id,i) => trendCardHTML(RECIPES.find(r=>r.id===id), i+1)).join('');
+  attachCardEvents(row);
+}
+
+function renderQuick(){
+  let list = RECIPES.filter(r => totalTime(r) <= 30);
+  if(currentTimeFilter > 0){
+    list = RECIPES.filter(r => totalTime(r) <= currentTimeFilter);
+  }
+  list = list.slice(0,8);
+  const grid = document.getElementById('quickGrid');
+  grid.innerHTML = list.length ? list.map(recipeCardHTML).join('') : '<p style="color:var(--ink-soft);">No recipes found under this time limit.</p>';
+  attachCardEvents(grid);
+}
+
+function renderAirfryer(){
+  const list = RECIPES.filter(r => r.tags.includes('airfryer'));
+  const grid = document.getElementById('airfryerGrid');
+  grid.innerHTML = list.map(recipeCardHTML).join('');
+  attachCardEvents(grid);
+}
+
+function renderHealthy(){
+  const list = RECIPES.filter(r => r.tags.includes('healthy')).slice(0,8);
+  const grid = document.getElementById('healthyGrid');
+  grid.innerHTML = list.map(recipeCardHTML).join('');
+  attachCardEvents(grid);
+}
+
+function renderDesserts(){
+  const list = RECIPES.filter(r => r.category === "Dessert");
+  const grid = document.getElementById('dessertGrid');
+  grid.innerHTML = list.map(recipeCardHTML).join('');
+  attachCardEvents(grid);
+}
+
+/* ================= FILTER / SORT / SEARCH ================= */
+function getFilterState(){
+  return {
+    category: document.getElementById('fCategory').value,
+    time: document.getElementById('fTime').value,
+    difficulty: document.getElementById('fDifficulty').value,
+    cuisine: document.getElementById('fCuisine').value,
+    sort: document.getElementById('fSort').value
+  };
+}
+
+function applyFilters(){
+  const f = getFilterState();
+  let list = RECIPES.filter(r => {
+    if(f.category && r.category !== f.category) return false;
+    if(f.time && totalTime(r) > parseInt(f.time)) return false;
+    if(f.difficulty && r.difficulty !== f.difficulty) return false;
+    if(f.cuisine && r.cuisine !== f.cuisine) return false;
+    return true;
+  });
+
+  if(f.sort === 'rating') list.sort((a,b)=> b.rating - a.rating);
+  else if(f.sort === 'quickest') list.sort((a,b)=> totalTime(a) - totalTime(b));
+  else list.sort((a,b)=> b.reviews - a.reviews);
+
+  renderActiveFilters(f);
+  const grid = document.getElementById('allRecipesGrid');
+  const empty = document.getElementById('emptyState');
+  document.getElementById('resultsCount').textContent = `Showing ${list.length} of ${RECIPES.length} recipes`;
+  if(list.length === 0){
+    grid.innerHTML = '';
+    empty.style.display = 'block';
+  } else {
+    empty.style.display = 'none';
+    grid.innerHTML = list.map(recipeCardHTML).join('');
+    attachCardEvents(grid);
+  }
+}
+
+function renderActiveFilters(f){
+  const wrap = document.getElementById('activeFilters');
+  const items = [];
+  if(f.category) items.push({key:'fCategory', label:'Category: '+f.category});
+  if(f.time) items.push({key:'fTime', label:'Under '+f.time+' min'});
+  if(f.difficulty) items.push({key:'fDifficulty', label:'Difficulty: '+f.difficulty});
+  if(f.cuisine) items.push({key:'fCuisine', label:'Cuisine: '+f.cuisine});
+  wrap.innerHTML = items.map(it => `<span class="active-filter-tag">${it.label} <button data-clear="${it.key}" aria-label="Remove filter ${it.label}">✕</button></span>`).join('');
+  wrap.querySelectorAll('button[data-clear]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.getElementById(btn.dataset.clear).value = '';
+      applyFilters();
+    });
+  });
+}
+
+['fCategory','fTime','fDifficulty','fCuisine','fSort'].forEach(id => {
+  document.getElementById(id).addEventListener('change', applyFilters);
+});
+document.getElementById('clearFiltersBtn').addEventListener('click', () => {
+  ['fCategory','fTime','fDifficulty','fCuisine'].forEach(id => document.getElementById(id).value = '');
+  document.getElementById('fSort').value = 'popular';
+  applyFilters();
+});
+
+/* Time pills */
+document.querySelectorAll('.time-pill').forEach(pill => {
+  pill.addEventListener('click', () => {
+    document.querySelectorAll('.time-pill').forEach(p => p.classList.remove('active'));
+    pill.classList.add('active');
+    currentTimeFilter = parseInt(pill.dataset.time);
+    renderQuick();
+  });
+});
+
+/* ================= SEARCH ================= */
+function searchRecipes(term){
+  term = term.trim().toLowerCase();
+  if(!term) return [];
+  return RECIPES.filter(r => {
+    return r.name.toLowerCase().includes(term) ||
+      r.category.toLowerCase().includes(term) ||
+      r.cuisine.toLowerCase().includes(term) ||
+      r.ingredients.some(i => i.toLowerCase().includes(term)) ||
+      r.tags.some(t => t.toLowerCase().includes(term)) ||
+      (term === 'chicken dinner' && r.name.toLowerCase().includes('chicken')) ||
+      (term === 'easy dinner' && r.category === 'Dinner' && r.difficulty === 'Easy');
+  });
+}
+
+function runHeroSearch(term){
+  document.getElementById('overlaySearchInput').value = term;
+  openSearchOverlay();
+  renderSearchResults(term);
+}
+
+document.getElementById('heroSearchForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const term = document.getElementById('heroSearchInput').value;
+  runHeroSearch(term);
+});
+document.querySelectorAll('.chip[data-search]').forEach(chip => {
+  chip.addEventListener('click', () => runHeroSearch(chip.dataset.search));
+});
+
+function openSearchOverlay(){
+  document.getElementById('searchOverlay').classList.add('open');
+  setTimeout(()=> document.getElementById('overlaySearchInput').focus(), 50);
+}
+function closeSearchOverlay(){
+  document.getElementById('searchOverlay').classList.remove('open');
+}
+document.getElementById('searchBtn').addEventListener('click', openSearchOverlay);
+document.getElementById('searchOverlayCloseBtn').addEventListener('click', closeSearchOverlay);
+document.getElementById('searchOverlay').addEventListener('click', (e) => {
+  if(e.target.id === 'searchOverlay') closeSearchOverlay();
+});
+document.addEventListener('keydown', (e) => {
+  if(e.key === 'Escape'){
+    closeSearchOverlay();
+    closeModal();
+    closeDrawer();
+  }
+});
+
+function renderSearchResults(term){
+  const wrap = document.getElementById('overlaySearchResults');
+  if(!term.trim()){
+    wrap.innerHTML = '<p class="search-hint">Start typing to search 30+ recipes by name, ingredient or cuisine.</p>';
+    return;
+  }
+  const results = searchRecipes(term);
+  if(results.length === 0){
+    wrap.innerHTML = '<p class="search-hint">No recipes found. Try "chicken", "pasta", or "cookies".</p>';
+    return;
+  }
+  wrap.innerHTML = results.slice(0,10).map(r => `
+    <div class="search-result-item" data-id="${r.id}" tabindex="0" role="button" aria-label="View ${r.name}">
+      <img src="${r.image}" alt="" loading="lazy">
+      <div>
+        <div style="font-weight:700; font-size:0.92rem;">${r.name}</div>
+        <div style="font-size:0.78rem; color:var(--ink-soft);">${r.cuisine} · ${r.category} · ${totalTime(r)} min</div>
+      </div>
+    </div>`).join('');
+  wrap.querySelectorAll('.search-result-item').forEach(item => {
+    item.addEventListener('click', () => {
+      closeSearchOverlay();
+      trackUserMonetization();
+      openModal(parseInt(item.dataset.id));
+    });
+  });
+}
+document.getElementById('overlaySearchInput').addEventListener('input', (e) => renderSearchResults(e.target.value));
+
+/* ================= MODAL ================= */
+function openModal(id){
+  const r = RECIPES.find(x => x.id === id);
+  if(!r) return;
+  document.getElementById('modalImg').src = r.image;
+  document.getElementById('modalImg').alt = r.name;
+  document.getElementById('modalTitle').textContent = r.name;
+  document.getElementById('modalDesc').textContent = r.description;
+  document.getElementById('modalBadges').innerHTML = `
+    <span class="modal-badge">${r.cuisine}</span>
+    <span class="modal-badge">${r.category}</span>
+    <span class="modal-badge">${r.difficulty}</span>`;
+  document.getElementById('modalStats').innerHTML = `
+    <div class="modal-stat"><div class="v">${r.prep}m</div><div class="l">Prep</div></div>
+    <div class="modal-stat"><div class="v">${r.cook}m</div><div class="l">Cook</div></div>
+    <div class="modal-stat"><div class="v">${totalTime(r)}m</div><div class="l">Total</div></div>
+    <div class="modal-stat"><div class="v">${r.servings}</div><div class="l">Servings</div></div>
+    <div class="modal-stat"><div class="v">${r.rating} ★</div><div class="l">${r.reviews} reviews</div></div>`;
+  document.getElementById('modalIngredients').innerHTML = r.ingredients.map((ing,i) => `
+    <li>
+      <input type="checkbox" id="ing-${r.id}-${i}">
+      <label for="ing-${r.id}-${i}">${ing}</label>
+    </li>`).join('');
+  document.getElementById('modalIngredients').querySelectorAll('input[type=checkbox]').forEach(cb => {
+    cb.addEventListener('change', () => {
+      cb.nextElementSibling.classList.toggle('checked', cb.checked);
+    });
+  });
+  document.getElementById('modalSteps').innerHTML = r.instructions.map(step => `<li>${step}</li>`).join('');
+  document.getElementById('modalTips').innerHTML = `<strong>Chef's Tip:</strong> ${r.tips}`;
+  document.getElementById('modalNutrition').innerHTML = `
+    <span class="nutrition-pill">Calories: ${r.nutrition.calories}</span>
+    <span class="nutrition-pill">Protein: ${r.nutrition.protein}</span>
+    <span class="nutrition-pill">Carbs: ${r.nutrition.carbs}</span>
+    <span class="nutrition-pill">Fat: ${r.nutrition.fat}</span>`;
+  document.getElementById('modalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('modalCloseBtn').focus();
+}
+function closeModal(){
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('modalCloseBtn').addEventListener('click', closeModal);
+document.getElementById('modalOverlay').addEventListener('click', (e) => {
+  if(e.target.id === 'modalOverlay') closeModal();
+});
+
+/* ================= FAVORITES DRAWER ================= */
+function renderDrawer(){
+  const list = document.getElementById('drawerList');
+  const favRecipes = RECIPES.filter(r => favorites.includes(r.id));
+  if(favRecipes.length === 0){
+    list.innerHTML = `<div class="empty-state"><div class="emoji">🤍</div><h3>No favorites yet</h3><p>Tap the heart icon on any recipe to save it here.</p></div>`;
+    return;
+  }
+  list.innerHTML = favRecipes.map(r => `
+    <div class="drawer-item" data-id="${r.id}" tabindex="0" role="button" aria-label="View ${r.name}">
+      <img src="${r.image}" alt="" loading="lazy">
+      <div>
+        <div class="di-title">${r.name}</div>
+        <div class="di-meta">${r.cuisine} · ${totalTime(r)} min</div>
+      </div>
+      <button class="di-remove" data-remove="${r.id}" aria-label="Remove ${r.name} from favorites">✕</button>
+    </div>`).join('');
+  list.querySelectorAll('.drawer-item').forEach(item => {
+    item.addEventListener('click', (e) => {
+      if(e.target.closest('.di-remove')) return;
+      openModal(parseInt(item.dataset.id));
+    });
+  });
+  list.querySelectorAll('[data-remove]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleFavorite(parseInt(btn.dataset.remove));
+    });
+  });
+}
+function openDrawer(){
+  document.getElementById('favDrawer').classList.add('open');
+  document.getElementById('drawerOverlay').classList.add('open');
+  renderDrawer();
+}
+function closeDrawer(){
+  document.getElementById('favDrawer').classList.remove('open');
+  document.getElementById('drawerOverlay').classList.remove('open');
+}
+document.getElementById('favBtn').addEventListener('click', openDrawer);
+document.getElementById('drawerCloseBtn').addEventListener('click', closeDrawer);
+document.getElementById('drawerOverlay').addEventListener('click', closeDrawer);
+
+/* ================= NAVBAR ================= */
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 10);
+});
+const hamburgerBtn = document.getElementById('hamburgerBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburgerBtn.addEventListener('click', () => {
+  const open = mobileMenu.classList.toggle('open');
+  hamburgerBtn.classList.toggle('active', open);
+  hamburgerBtn.setAttribute('aria-expanded', open);
+});
+mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  mobileMenu.classList.remove('open');
+  hamburgerBtn.classList.remove('active');
+  hamburgerBtn.setAttribute('aria-expanded', 'false');
+}));
+
+/* ================= NEWSLETTER ================= */
+document.getElementById('newsletterForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const email = document.getElementById('newsletterEmail').value;
+  const msg = document.getElementById('newsletterMsg');
+  msg.textContent = `🎉 You're in! Recipe inspiration is headed to ${email}.`;
+  document.getElementById('newsletterEmail').value = '';
+});
+
+/* ================= SCROLL REVEAL ================= */
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('in');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, {threshold:0.12});
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+/* ================= INIT ================= */
+renderCategories();
+renderFeatured();
+renderAmerican();
+renderGlobal();
+renderTrending();
+applyFilters();
+renderQuick();
+renderAirfryer();
+renderHealthy();
+renderDesserts();
+saveFavorites();
+</script>
+</body>
+</html>
