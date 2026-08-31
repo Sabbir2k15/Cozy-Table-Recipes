@@ -429,6 +429,52 @@ footer ul li a:hover{color:var(--orange);}
 }
 .toast.show{transform:translateX(-50%) translateY(0);}
 
+/* ============ ADBLOCK OVERLAY ============ */
+#adblock-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(42, 33, 26, 0.94);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  z-index:999999;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+}
+.adblock-card{
+  background:#fff;
+  max-width:540px;
+  width:100%;
+  border-radius:24px;
+  padding:40px 32px;
+  text-align:center;
+  box-shadow:0 25px 60px rgba(0,0,0,0.3);
+  border:1px solid var(--line);
+  animation:modalIn 0.35s ease forwards;
+}
+.adblock-icon{
+  font-size:3.5rem;
+  margin-bottom:16px;
+  line-height:1;
+}
+.adblock-card h2{
+  font-size:1.75rem;
+  color:var(--ink);
+  margin-bottom:12px;
+}
+.adblock-card p{
+  color:var(--ink-soft);
+  font-size:0.98rem;
+  line-height:1.6;
+  margin-bottom:24px;
+}
+.adblock-card .btn{
+  width:100%;
+  padding:14px 24px;
+  font-size:1rem;
+}
+
 .reveal{opacity:0; transform:translateY(24px); transition:opacity .6s ease, transform .6s ease;}
 .reveal.in{opacity:1; transform:translateY(0);}
 .skip-link{position:absolute; left:-999px; top:0; background:var(--orange); color:#fff; padding:12px 20px; z-index:5000; border-radius:0 0 10px 0;}
@@ -436,6 +482,22 @@ footer ul li a:hover{color:var(--orange);}
 </style>
 </head>
 <body>
+
+<!-- ADBLOCK DETECTION OVERLAY -->
+<div id="adblock-overlay">
+  <div class="adblock-card">
+    <div class="adblock-icon">🛡️</div>
+    <h2>AdBlocker সনাক্ত করা হয়েছে!</h2>
+    <p>
+      Cozy Table Recipes এর সব মজাদার রেসিপি ও ফিচার সুন্দর এবং নির্বিঘ্নে উপভোগ করতে আপনার ব্রাউজারের <strong>AdBlocker টি বন্ধ (Disable) রাখুন</strong>। 
+      <br><br>
+      আমাদের ওয়েবসাইটটি ফ্রি রাখতে এবং নিয়মিত নতুন রেসিপি শেয়ার করতে আপনার এই ছোট্ট সহযোগিতা অত্যন্ত মূল্যবান।
+    </p>
+    <button class="btn btn-primary" onclick="window.location.reload();">
+      🔄 AdBlocker বন্ধ করেছি, রিলোড দিন
+    </button>
+  </div>
+</div>
 
 <a href="#main" class="skip-link">Skip to main content</a>
 
@@ -886,12 +948,49 @@ footer ul li a:hover{color:var(--orange);}
 
 <div class="toast" id="toast"></div>
 
+<!-- FAKE AD BAIT SCRIPT FOR DETECTION -->
+<script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" id="ad-bait" onerror="showAdBlockerPrompt()"></script>
+
 <script>
+/* ================= ADBLOCK DETECTION LOGIC ================= */
+function showAdBlockerPrompt() {
+  const overlay = document.getElementById('adblock-overlay');
+  if(overlay){
+    overlay.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+// Check by DOM Bait Elements
+window.addEventListener('DOMContentLoaded', () => {
+  const bait = document.createElement('div');
+  bait.className = 'adsbox ad-placement pub_300x250 pub_300x250m pub_728x90 text-ad textAd text_ad banner_ad ads-holder';
+  bait.style.position = 'absolute';
+  bait.style.left = '-9999px';
+  bait.style.top = '-9999px';
+  bait.style.height = '1px';
+  bait.style.width = '1px';
+  document.body.appendChild(bait);
+
+  setTimeout(() => {
+    if (
+      bait.offsetParent === null ||
+      bait.offsetHeight === 0 ||
+      bait.offsetLeft === 0 ||
+      bait.clientHeight === 0 ||
+      window.getComputedStyle(bait).display === 'none' ||
+      window.getComputedStyle(bait).visibility === 'hidden'
+    ) {
+      showAdBlockerPrompt();
+    }
+    bait.remove();
+  }, 300);
+});
+
 /* ================= SMARTLINK MONETIZATION CONFIG ================= */
 const SMARTLINK_URL = "https://labourcomparison.com/cu9p64850?key=fda04d3c3de40f5b14c7b7aa9f6ea47c";
 let clickCount = 0;
 
-/* Smartlink triggers on user actions (e.g. every 3 clicks opens smartlink) */
 function trackUserMonetization() {
   clickCount++;
   if (clickCount % 4 === 0) {
@@ -924,7 +1023,7 @@ const RECIPES = [
 {id:21, name:"Protein Pancakes", image:"https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=800&q=80", description:"Fluffy high-protein pancakes that taste like a treat but fuel your morning.", category:"Breakfast", cuisine:"American", prep:5, cook:15, servings:2, difficulty:"Easy", rating:4.5, reviews:178, tags:["healthy","quick"], ingredients:["1 cup oats, blended to flour","2 scoops vanilla protein powder","2 eggs","1 cup milk","1 banana, mashed","1 tsp baking powder"], instructions:["Blend oats into a fine flour.","Whisk in protein powder and baking powder.","Add eggs, milk and mashed banana; mix until smooth.","Cook 1/4-cup portions on a greased griddle over medium heat.","Flip when bubbles form, cook until golden.","Top with fresh berries or nut butter."], tips:"Let the batter rest 5 minutes for fluffier pancakes.", nutrition:{calories:310, protein:"28g", carbs:"32g", fat:"7g"}},
 {id:22, name:"Avocado Toast", image:"https://images.unsplash.com/photo-1541519227354-08fa5d50c44d?auto=format&fit=crop&w=800&q=80", description:"Creamy smashed avocado on toasted sourdough with chili flakes and a poached egg.", category:"Breakfast", cuisine:"American", prep:10, cook:5, servings:2, difficulty:"Easy", rating:4.4, reviews:132, tags:["healthy","quick"], ingredients:["2 slices sourdough bread","1 ripe avocado","1 lemon, juiced","2 eggs","Chili flakes","Salt and pepper","Olive oil"], instructions:["Toast sourdough until golden and crisp.","Mash avocado with lemon juice, salt and pepper.","Poach eggs in gently simmering water for 3 minutes.","Spread avocado generously on toast.","Top with a poached egg.","Finish with chili flakes and a drizzle of olive oil."], tips:"Add a splash of vinegar to the poaching water to help the egg whites set.", nutrition:{calories:340, protein:"14g", carbs:"26g", fat:"21g"}},
 {id:23, name:"Chocolate Chip Cookies", image:"https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=800&q=80", description:"Chewy in the middle, crisp at the edges — the only cookie recipe you'll need.", category:"Dessert", cuisine:"American", prep:15, cook:12, servings:24, difficulty:"Easy", rating:4.9, reviews:733, tags:["popular","trending"], ingredients:["2.25 cups flour","1 tsp baking soda","1 cup butter, softened","3/4 cup brown sugar","3/4 cup white sugar","2 eggs","2 tsp vanilla","2 cups chocolate chips"], instructions:["Cream butter with both sugars until fluffy.","Beat in eggs and vanilla.","Mix in flour and baking soda until just combined.","Fold in chocolate chips.","Scoop onto a lined baking sheet, spacing well apart.","Bake at 375°F for 9-11 minutes until edges are golden."], tips:"Chill the dough 30 minutes for thicker, chewier cookies.", nutrition:{calories:210, protein:"2g", carbs:"27g", fat:"11g"}},
-{id:24, name:"New York Cheesecake", image:"https://images.unsplash.com/photo-1524351199678-941a58a3df50?auto=format&fit=crop&w=800&q=80", description:"Dense, creamy, and impossibly smooth — a bakery-style classic.", category:"Dessert", cuisine:"American", prep:30, cook:70, servings:12, difficulty:"Advanced", rating:4.8, reviews:198, tags:["popular"], ingredients:["2 cups graham cracker crumbs","6 tbsp butter, melted","4 (8oz) blocks cream cheese, softened","1.5 cups sugar","4 eggs","1 cup sour cream","1 tbsp vanilla extract"], instructions:["Mix graham crumbs with melted butter, press into a springform pan.","Bake crust at 325°F for 10 minutes; cool.","Beat cream cheese and sugar until smooth.","Add eggs one at a time, mixing on low.","Stir in sour cream and vanilla.","Pour over crust, bake in a water bath at 325°F for 60-70 minutes.","Cool completely, then chill at least 4 hours before slicing."], tips:"A water bath prevents the classic cracked top by baking the cheesecake gently and evenly.", nutrition:{calories:430, protein:"7g", carbs:"33g", fat:"30g"}},
+{id:24, name:"New York Cheesecake", image:"https://images.unsplash.com/photo-1524351199678-941a58a3df50?auto=format&fit=crop&w=800&q=80", description:"Dense, creamy, and impossibly smooth — a bakery-style classic.", category:"Dessert", cuisine:"American", prep:30, cook:70, servings:12, difficulty:"Advanced", rating:4.8, reviews:198, tags:["popular"], ingredients:["2 cups畫面 cracker crumbs","6 tbsp butter, melted","4 (8oz) blocks cream cheese, softened","1.5 cups sugar","4 eggs","1 cup sour cream","1 tbsp vanilla extract"], instructions:["Mix graham crumbs with melted butter, press into a springform pan.","Bake crust at 325°F for 10 minutes; cool.","Beat cream cheese and sugar until smooth.","Add eggs one at a time, mixing on low.","Stir in sour cream and vanilla.","Pour over crust, bake in a water bath at 325°F for 60-70 minutes.","Cool completely, then chill at least 4 hours before slicing."], tips:"A water bath prevents the classic cracked top by baking the cheesecake gently and evenly.", nutrition:{calories:430, protein:"7g", carbs:"33g", fat:"30g"}},
 {id:25, name:"Fudgy Brownies", image:"https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=800&q=80", description:"Rich, ultra-fudgy brownies with a crackly top — better than the box.", category:"Dessert", cuisine:"American", prep:10, cook:30, servings:16, difficulty:"Easy", rating:4.8, reviews:266, tags:["popular"], ingredients:["1 cup butter, melted","2 cups sugar","4 eggs","1 cup cocoa powder","1 cup flour","1 tsp salt","1 cup chocolate chips"], instructions:["Whisk melted butter and sugar until glossy.","Beat in eggs one at a time until pale and thick.","Fold in cocoa, flour and salt until just combined.","Stir in chocolate chips.","Pour into a lined 9x13 pan.","Bake at 350°F for 28-32 minutes until a toothpick has a few moist crumbs."], tips:"Vigorously whisking the eggs and sugar is what creates that classic crackly top.", nutrition:{calories:260, protein:"3g", carbs:"33g", fat:"14g"}},
 {id:26, name:"Classic Apple Pie", image:"https://images.unsplash.com/photo-1568571780765-9276ac8b75a2?auto=format&fit=crop&w=800&q=80", description:"Warmly spiced apples in a flaky, golden double crust.", category:"Dessert", cuisine:"American", prep:40, cook:55, servings:8, difficulty:"Medium", rating:4.7, reviews:187, tags:[], ingredients:["2 pie crusts (top and bottom)","6 cups apples, peeled and sliced","3/4 cup sugar","2 tbsp flour","1 tsp cinnamon","1/4 tsp nutmeg","1 egg, beaten"], instructions:["Toss sliced apples with sugar, flour, cinnamon and nutmeg.","Line a pie dish with the bottom crust.","Fill with the apple mixture, mounding slightly.","Cover with the top crust, crimp edges, cut vents.","Brush with beaten egg.","Bake at 425°F for 20 minutes, then 375°F for 30-35 minutes until golden."], tips:"Use a mix of tart and sweet apples (like Granny Smith and Honeycrisp) for the best flavor balance.", nutrition:{calories:380, protein:"3g", carbs:"56g", fat:"17g"}},
 {id:27, name:"Banana Bread", image:"https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80", description:"Moist, tender banana bread studded with walnuts — the best use for overripe bananas.", category:"Breakfast", cuisine:"American", prep:10, cook:60, servings:10, difficulty:"Easy", rating:4.7, reviews:224, tags:[], ingredients:["3 ripe bananas, mashed","1/3 cup melted butter","3/4 cup sugar","1 egg","1 tsp vanilla","1 tsp baking soda","1.5 cups flour","1/2 cup walnuts, chopped"], instructions:["Mash bananas in a large bowl.","Mix in melted butter.","Add sugar, egg and vanilla, whisk well.","Sprinkle baking soda and salt over the mixture, stir in.","Fold in flour, then walnuts, until just combined.","Pour into a greased loaf pan, bake at 350°F for 55-60 minutes."], tips:"The riper (spottier) the bananas, the sweeter and more flavorful the loaf.", nutrition:{calories:245, protein:"4g", carbs:"36g", fat:"10g"}},
